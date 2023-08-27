@@ -1,5 +1,24 @@
 {
-    "recettes": [
-        
+    "recipes": [
+        {
+            "name": "Recette 1",
+            "image": {
+                "url": "",
+                "alt": ""
+            },
+            "ingredients": [
+                {
+                    "type": "vegetables",
+                    "name": "potato"
+                }
+            ],
+            "steps": [
+                {
+                    "name": "Cut the potato",
+                    "instructions": "Take a knife and cut the potato"
+                }
+            ],
+            "type": "entree"
+        }
     ]
 }
