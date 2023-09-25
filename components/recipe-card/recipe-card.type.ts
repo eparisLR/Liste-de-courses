@@ -1,5 +1,5 @@
-import { IRecipe } from "@/modules/recipes/recipes.types";
+import { IRecipe, Recipe } from "@/modules/recipes/recipes.types";
 
 export interface IRecipeCardProps {
-    recipe: IRecipe
+  recipe: Recipe;
 }

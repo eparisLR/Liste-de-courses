@@ -4,26 +4,24 @@ import { getAllRecipes } from "@/modules/recipes/recipes.service";
 import { Recipe } from "@/modules/recipes/recipes.types";
 import RecipeCard from "../recipe-card";
 
-const RecipesList: FC<IRecipesListProps> = ({}) => {
-    const [recipes, setRecipes] = useState<Recipe[]>([]);
-    useEffect(() => {
-        async function fetchData() {
-            const res = await getAllRecipes();
-            if (res) {
-                setRecipes([...res]);
-            }
-        }
-        fetchData();
-    }, []);
+export default function RecipesList() {
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await getAllRecipes();
+      if (res) {
+        setRecipes([...res]);
+      }
+    }
+    fetchData();
+  }, []);
 
-    return(
-        <>
-            <h1>Liste des recettes</h1>
-            {recipes.map((r, index) => {
-                return <RecipeCard key={`${r.name}-${index}`} recipe={r} />
-            })}
-        </>
-    )
+  return (
+    <>
+      <h1>Liste des recettes</h1>
+      {recipes.map((r, index) => {
+        return <RecipeCard key={`${r.name}-${index}`} recipe={r} />;
+      })}
+    </>
+  );
 }
-
-export default RecipesList;

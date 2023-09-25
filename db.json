@@ -1,24 +1,24 @@
 {
-    "recipes": [
+  "recipes": [
+    {
+      "name": "Recette 1",
+      "image": {
+        "url": "https://fakeimg.pl/300/",
+        "alt": "wesh le sang"
+      },
+      "ingredients": [
         {
-            "name": "Recette 1",
-            "image": {
-                "url": "",
-                "alt": ""
-            },
-            "ingredients": [
-                {
-                    "type": "vegetables",
-                    "name": "potato"
-                }
-            ],
-            "steps": [
-                {
-                    "name": "Cut the potato",
-                    "instructions": "Take a knife and cut the potato"
-                }
-            ],
-            "type": "entree"
+          "type": "vegetables",
+          "name": "potato"
         }
-    ]
+      ],
+      "steps": [
+        {
+          "name": "Cut the potato",
+          "instructions": "Take a knife and cut the potato"
+        }
+      ],
+      "type": "entree"
+    }
+  ]
 }
