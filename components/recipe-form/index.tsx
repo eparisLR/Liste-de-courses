@@ -1,5 +1,6 @@
 import {
   IIngredient,
+  INGREDIENTS_TYPES,
   IStep,
   RECIPE_TYPE,
 } from "@/modules/recipes/recipes.types";
@@ -9,6 +10,8 @@ import { useState } from "react";
 
 export default function RecipeForm() {
   const [ingredients, setIngredients] = useState([] as IIngredient[]);
+  const [ingredientName, setIngredientName] = useState("");
+  const [ingredientType, setIngredientType] = useState("");
   const [steps, setSteps] = useState([] as IStep[]);
 
   return (
@@ -21,19 +24,6 @@ export default function RecipeForm() {
         className="max-w-xs"
         placeholder="Nom de la recette..."
       />
-      <div className="flex gap-2">
-        {ingredients.map((ingredient, index) => (
-          <Chip
-            key={index}
-            onClose={() =>
-              setIngredients(
-                ingredients.filter((igd) => igd.name !== ingredient.name)
-              )
-            }
-            variant="flat"
-          />
-        ))}
-      </div>
 
       <Select
         label="Catégorie de la recette"
