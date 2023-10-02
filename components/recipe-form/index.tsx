@@ -4,6 +4,7 @@ import {
   RECIPE_TYPE,
 } from "@/modules/recipes/recipes.types";
 import { Button, Chip, Input, Select, SelectItem } from "@nextui-org/react";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function RecipeForm() {
@@ -46,6 +47,7 @@ export default function RecipeForm() {
           );
         })}
       </Select>
+      <Link href="/">Annuler</Link>
       <Button>Enregistrer</Button>
     </form>
   );
