@@ -1,5 +1,4 @@
 import RecipesList from "@/components/recipes-list";
-import { NextUIProvider } from "@nextui-org/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
