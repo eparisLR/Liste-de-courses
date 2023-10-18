@@ -4,21 +4,27 @@ import {
 } from "@/modules/recipes/recipes.types";
 import { Button, Chip, Input, Select, SelectItem } from "@nextui-org/react";
 import { useState } from "react";
+import { IngredientsListProps } from "./ingredients-list.type";
 
-export default function IngredientsList() {
+const IngredientsList = ({
+  handleIngredientsChanges,
+}: IngredientsListProps) => {
   const [ingredients, setIngredients] = useState([] as IIngredient[]);
   const [ingredientName, setIngredientName] = useState("");
   const [ingredientType, setIngredientType] = useState("");
+
+  function handleOnAddIngredient(ingredient: IIngredient) {}
   return (
     <div className="flex gap-2">
       {ingredients.map((ingredient, index) => (
         <Chip
           key={index}
-          onClose={() =>
+          onClose={() => {
             setIngredients(
               ingredients.filter((igd) => igd.name !== ingredient.name)
-            )
-          }
+            );
+            handleIngredientsChanges(ingredients);
+          }}
           variant="flat"
         >
           {ingredient.name}
@@ -34,7 +40,6 @@ export default function IngredientsList() {
         label="Type de l'ingrédient"
         placeholder="Sélectionnez le type de l'ingrédient"
         onChange={(event) => {
-          console.log(event);
           setIngredientType(
             Object.values(INGREDIENTS_TYPES)[+event.target.value]
           );
@@ -50,14 +55,18 @@ export default function IngredientsList() {
       </Select>
       <Button
         onClick={() => {
-          return setIngredients([
+          const updatedIngrdients = [
             ...ingredients,
             { name: ingredientName, type: ingredientType } as IIngredient,
-          ]);
+          ];
+          setIngredients(updatedIngrdients);
+          handleIngredientsChanges(updatedIngrdients);
         }}
       >
         Ajouter l&apos;ingredient
       </Button>
     </div>
   );
-}
+};
+
+export default IngredientsList;

@@ -2,6 +2,7 @@ import RecipesList from "@/components/recipes-list";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { Toaster } from "sonner";
 
 export default function Home() {
   const router = useRouter();

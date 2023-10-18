@@ -1,5 +1,4 @@
-import { FC, useEffect, useState } from "react";
-import { IRecipesListProps } from "./recipes-list.types";
+import { useEffect, useState } from "react";
 import { getAllRecipes } from "@/modules/recipes/recipes.service";
 import { Recipe } from "@/modules/recipes/recipes.types";
 import RecipeCard from "../recipe-card";
