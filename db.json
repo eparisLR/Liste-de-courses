@@ -5,7 +5,7 @@
       "type": "entree",
       "name": "TestRecette",
       "image": {
-        "url": "",
+        "url": "https://fakeimg.pl/500/",
         "alt": ""
       },
       "ingredients": [
@@ -25,7 +25,7 @@
       "type": "entree",
       "name": "La recette d'Emiien",
       "image": {
-        "url": "",
+        "url": "https://fakeimg.pl/300/",
         "alt": ""
       },
       "ingredients": [
@@ -46,7 +46,7 @@
       "type": "entree",
       "name": "Ma recette",
       "image": {
-        "url": "",
+        "url": "https://fakeimg.pl/300/",
         "alt": ""
       },
       "ingredients": [
@@ -67,7 +67,7 @@
       "type": "entree",
       "name": "Ma recette",
       "image": {
-        "url": "",
+        "url": "https://fakeimg.pl/300/",
         "alt": ""
       },
       "ingredients": [
@@ -88,7 +88,7 @@
       "type": "plat",
       "name": "test",
       "image": {
-        "url": "",
+        "url": "https://fakeimg.pl/300/",
         "alt": ""
       },
       "ingredients": [
@@ -109,7 +109,7 @@
       "type": "entree",
       "name": "test",
       "image": {
-        "url": "",
+        "url": "https://fakeimg.pl/300/",
         "alt": ""
       },
       "ingredients": [
@@ -130,7 +130,7 @@
       "type": "entree",
       "name": "test",
       "image": {
-        "url": "",
+        "url": "https://fakeimg.pl/300/",
         "alt": ""
       },
       "ingredients": [
@@ -151,7 +151,7 @@
       "type": "entree",
       "name": "test",
       "image": {
-        "url": "",
+        "url": "https://fakeimg.pl/300/",
         "alt": ""
       },
       "ingredients": [
@@ -172,7 +172,7 @@
       "type": "entree",
       "name": "test",
       "image": {
-        "url": "",
+        "url": "https://fakeimg.pl/300/",
         "alt": ""
       },
       "ingredients": [

@@ -17,10 +17,11 @@ export default function RecipesList() {
 
   return (
     <>
-      <h1>Liste des recettes</h1>
-      {recipes.map((r, index) => {
-        return <RecipeCard key={`${r.name}-${index}`} recipe={r} />;
-      })}
+      <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+        {recipes.map((r, index) => {
+          return <RecipeCard key={`${r.name}-${index}`} recipe={r} />;
+        })}
+      </div>
     </>
   );
 }

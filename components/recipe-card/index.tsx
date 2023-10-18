@@ -1,24 +1,24 @@
 import { IRecipeCardProps } from "./recipe-card.type";
 import Image from "next/image";
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react";
 
 const RecipeCard = ({ recipe }: IRecipeCardProps) => {
   return (
     <>
-      <Card className="py-4">
-        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-          <h4>{recipe.name}</h4>
-        </CardHeader>
-        <CardBody className="overflow-visible py-2">
+      <Card shadow="sm" isPressable className="ldc-card">
+        <CardBody className="overflow-visible">
           <Image
             src={recipe.image.url}
             alt={recipe.image.alt}
-            className="object-cover rounded-xl"
-            width="100"
-            height="100"
+            className="w-full object-cover h-[200px]"
+            width="150"
+            height="150"
             priority={false}
           />
         </CardBody>
+        <CardFooter className="text-small justify-between">
+          <b>{recipe.name}</b>
+        </CardFooter>
       </Card>
     </>
   );
