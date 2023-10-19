@@ -4,6 +4,7 @@
 export interface IRecipe {
   name: string;
   image: IImage;
+  season: SEASONS;
   ingredients: IIngredient[];
   steps: IStep[];
   type: RECIPE_TYPE;
@@ -14,6 +15,13 @@ export interface IIngredient {
   name: string;
 }
 
+export enum SEASONS {
+  AUTUMN = "Automne",
+  WINTER = "Hiver",
+  SPRING = "Printemps",
+  SUMMER = "Été",
+}
+
 export enum INGREDIENTS_TYPES {
   VEGETABLES = "vegetables",
   MEAT = "meat",
@@ -22,9 +30,9 @@ export enum INGREDIENTS_TYPES {
 }
 
 export enum RECIPE_TYPE {
-  ENTREE = "entree",
-  PLAT = "plat",
-  DESSERT = "dessert",
+  ENTREE = "Entrée",
+  PLAT = "Plat",
+  DESSERT = "Dessert",
 }
 
 export interface IStep {
@@ -46,16 +54,19 @@ export class Recipe implements IRecipe {
   image: IImage = { url: "", alt: "" };
   ingredients: IIngredient[] = [];
   steps: IStep[] = [];
+  season: SEASONS = SEASONS.AUTUMN;
   constructor(
     name: string,
     type: RECIPE_TYPE,
     ingredients: IIngredient[],
-    steps: IStep[]
+    steps: IStep[],
+    season: SEASONS
   ) {
     this.name = name;
     this.type = type;
     this.ingredients = ingredients;
     this.steps = steps;
+    this.season = season;
   }
 }
 

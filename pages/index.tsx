@@ -24,7 +24,7 @@ export default function Home() {
         <meta name="descirption" content="Générateur de liste de courses" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div className="flex container">
+      <div className="flex container w-full">
         <div className=" max-h-screen sticky top-0">
           <ul className="flex h-full w-[13vw] flex-col justify-around p-12">
             <li className="flex w-100 text-blue-900">
@@ -75,7 +75,7 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="w-100 p-2">
           <Link href="/recipes" className="flex justify-items-center pb-2">
             <AiOutlinePlus size="23" />
             <span>Ajout d&apos;une recette</span>
