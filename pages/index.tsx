@@ -76,7 +76,7 @@ export default function Home() {
           </ul>
         </div>
         <div className="w-100 p-2">
-          <Link href="/recipes" className="flex justify-items-center pb-2">
+          <Link href="/recipes/add" className="flex justify-items-center pb-2">
             <AiOutlinePlus size="23" />
             <span>Ajout d&apos;une recette</span>
           </Link>

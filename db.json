@@ -188,6 +188,28 @@
         }
       ],
       "id": 9
+    },
+    {
+      "type": "Entrée",
+      "name": "Ma super recette",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "ingredients": [
+        {
+          "name": "Patate",
+          "type": "vegetables"
+        }
+      ],
+      "steps": [
+        {
+          "name": "Test",
+          "instructions": "tets"
+        }
+      ],
+      "season": "Hiver",
+      "id": 10
     }
   ]
 }
