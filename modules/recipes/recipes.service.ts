@@ -13,7 +13,7 @@ export const getAllRecipes = async () => {
     })
     .catch((error) => {
       toast.error("Erreur lors de la récupération des recettes");
-      console.log(error);
+      console.error(error);
     });
 };
 
@@ -28,6 +28,20 @@ export const saveRecipe = async (recipe: Recipe) => {
     })
     .catch((error) => {
       toast.error("Erreur lors de l'ajout de la recette");
+      console.error(error);
+    });
+};
+
+export const getOneRecipe = (id: number) => {
+  return fetch(recipesEndpoints.getOneRecipe + id, {
+    method: "GET",
+    headers: { "Content-type": "application/json" },
+  })
+    .then(async (result) => {
+      return result.json().then((recipe) => recipe as Recipe);
+    })
+    .catch((error) => {
+      toast.error("Erreur lors de la récupération de la recette");
       console.log(error);
     });
 };
