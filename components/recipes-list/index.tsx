@@ -20,12 +20,13 @@ export default function RecipesList() {
     <>
       <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
         {recipes.map((r, index) => {
+          const recipeId = index + 1;
           return (
             <Link
-              href={{ pathname: "/recipes/view", query: { id: index + 1 } }}
+              href={{ pathname: "/recipes/view", query: { id: recipeId } }}
               key={`${r.name}-${index}`}
             >
-              <RecipeCard recipe={r} />
+              <RecipeCard recipeId={recipeId} recipe={r} />
             </Link>
           );
         })}

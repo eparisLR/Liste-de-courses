@@ -14,6 +14,7 @@ import { BsSnow2 } from "react-icons/bs";
 import { PiSunHorizonDuotone } from "react-icons/pi";
 import { FaCarrot, FaPlateWheat } from "react-icons/fa6";
 import { LuUtensilsCrossed } from "react-icons/lu";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   const router = useRouter();
@@ -27,6 +28,9 @@ export default function Home() {
       <div className="flex container w-full">
         <div className=" max-h-screen sticky top-0">
           <ul className="flex h-full w-[13vw] flex-col justify-around p-12">
+            <li className="w-100">
+              <UserButton afterSignOutUrl="/" />
+            </li>
             <li className="flex w-100 text-blue-900">
               <LuUtensilsCrossed size="23" className="mr-2" />
               Toutes

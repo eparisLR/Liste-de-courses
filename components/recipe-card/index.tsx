@@ -1,8 +1,9 @@
 import { IRecipeCardProps } from "./recipe-card.type";
 import Image from "next/image";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react";
+import Link from "next/link";
 
-const RecipeCard = ({ recipe }: IRecipeCardProps) => {
+const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
   return (
     <>
       <Card shadow="sm" isPressable className="ldc-card">
@@ -17,7 +18,12 @@ const RecipeCard = ({ recipe }: IRecipeCardProps) => {
           />
         </CardBody>
         <CardFooter className="text-small justify-between">
-          <b>{recipe.name}</b>
+          <b>
+            {recipe.name}{" "}
+            <Link
+              href={{ pathname: "recipes/edit", query: { id: recipeId } }}
+            ></Link>
+          </b>
         </CardFooter>
       </Card>
     </>
