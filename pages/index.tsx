@@ -3,7 +3,6 @@ import { RECIPE_TYPE } from "@/modules/recipes/recipes.types";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { AiOutlinePlus } from "react-icons/ai";
 import {
   GiPumpkin,
   GiFlowerPot,
@@ -14,10 +13,21 @@ import { BsSnow2 } from "react-icons/bs";
 import { PiSunHorizonDuotone } from "react-icons/pi";
 import { FaCarrot, FaPlateWheat } from "react-icons/fa6";
 import { LuUtensilsCrossed } from "react-icons/lu";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, currentUser, useUser } from "@clerk/nextjs";
+import { IoSettingsSharp } from "react-icons/io5";
 
 export default function Home() {
   const router = useRouter();
+  const { user } = useUser();
+  const isAdmin = () => {
+    let isAdministrator = false;
+    user?.organizationMemberships?.forEach((organizationMembersip) => {
+      if (organizationMembersip.organization.name === "Administration")
+        isAdministrator = true;
+    });
+    return isAdministrator;
+  };
+
   return (
     <>
       <Head>
@@ -31,6 +41,13 @@ export default function Home() {
             <li className="w-100">
               <UserButton afterSignOutUrl="/" />
             </li>
+            {isAdmin() && (
+              <li className="w-100">
+                <Link href={"/admin"} className="flex">
+                  <IoSettingsSharp size="23" className="mr-2" /> Gestion
+                </Link>
+              </li>
+            )}
             <li className="flex w-100 text-blue-900">
               <LuUtensilsCrossed size="23" className="mr-2" />
               Toutes
@@ -80,10 +97,6 @@ export default function Home() {
           </ul>
         </div>
         <div className="w-100 p-2">
-          <Link href="/recipes/add" className="flex justify-items-center pb-2">
-            <AiOutlinePlus size="23" />
-            <span>Ajout d&apos;une recette</span>
-          </Link>
           <RecipesList />
         </div>
       </div>

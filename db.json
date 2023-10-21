@@ -2,27 +2,17 @@
   "recipes": [
     {
       "id": 1,
-      "type": "entree",
-      "name": "TestRecette",
+      "type": "Entrée",
+      "name": "",
       "image": {
         "url": "https://fakeimg.pl/500/",
         "alt": ""
       },
-      "ingredients": [
-        {
-          "name": "Patate",
-          "type": "vegetables"
-        }
-      ],
-      "steps": [
-        {
-          "name": "Test",
-          "instructions": "Test"
-        }
-      ]
+      "ingredients": [],
+      "steps": []
     },
     {
-      "type": "entree",
+      "type": "Entrée",
       "name": "La recette d'Emiien",
       "image": {
         "url": "https://fakeimg.pl/300/",
@@ -40,10 +30,11 @@
           "instructions": "tete"
         }
       ],
+      "season": "Hiver",
       "id": 2
     },
     {
-      "type": "entree",
+      "type": "Entrée",
       "name": "Ma recette",
       "image": {
         "url": "https://fakeimg.pl/300/",
@@ -61,10 +52,11 @@
           "instructions": "tetetetetetetet"
         }
       ],
+      "season": "Hiver",
       "id": 3
     },
     {
-      "type": "entree",
+      "type": "Entrée",
       "name": "Ma recette",
       "image": {
         "url": "https://fakeimg.pl/300/",
@@ -82,10 +74,11 @@
           "instructions": "tetetetetetetet"
         }
       ],
+      "season": "Hiver",
       "id": 4
     },
     {
-      "type": "plat",
+      "type": "Plat",
       "name": "test",
       "image": {
         "url": "https://fakeimg.pl/300/",
@@ -103,10 +96,11 @@
           "instructions": "test"
         }
       ],
+      "season": "Hiver",
       "id": 5
     },
     {
-      "type": "entree",
+      "type": "Entrée",
       "name": "test",
       "image": {
         "url": "https://fakeimg.pl/300/",
@@ -124,10 +118,11 @@
           "instructions": "test"
         }
       ],
+      "season": "Hiver",
       "id": 6
     },
     {
-      "type": "entree",
+      "type": "Entrée",
       "name": "test",
       "image": {
         "url": "https://fakeimg.pl/300/",
@@ -145,10 +140,11 @@
           "instructions": "test"
         }
       ],
+      "season": "Hiver",
       "id": 7
     },
     {
-      "type": "entree",
+      "type": "Entrée",
       "name": "test",
       "image": {
         "url": "https://fakeimg.pl/300/",
@@ -166,10 +162,11 @@
           "instructions": "test"
         }
       ],
+      "season": "Hiver",
       "id": 8
     },
     {
-      "type": "entree",
+      "type": "Entrée",
       "name": "test",
       "image": {
         "url": "https://fakeimg.pl/300/",
@@ -187,6 +184,7 @@
           "instructions": "test"
         }
       ],
+      "season": "Hiver",
       "id": 9
     },
     {

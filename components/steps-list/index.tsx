@@ -3,8 +3,8 @@ import { Button, Input, Textarea } from "@nextui-org/react";
 import { useState } from "react";
 import { StepsListProps } from "./steps-list.type";
 
-const StepsList = ({ handleStepsChanges }: StepsListProps) => {
-  const [steps, setSteps] = useState([] as IStep[]);
+const StepsList = ({ handleStepsChanges, recipeSteps }: StepsListProps) => {
+  const [steps, setSteps] = useState(recipeSteps ? recipeSteps : []);
   const [stepTitle, setStepTitle] = useState("");
   const [stepDescription, setStepDesription] = useState("");
 

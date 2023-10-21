@@ -12,8 +12,26 @@ export const getAllRecipes = async () => {
       return results.json().then((recipes) => recipes as Recipe[]);
     })
     .catch((error) => {
-      toast.error("Erreur lors de la récupération des recettes");
+      toast.error("Erreur lors de la récupération des recettes", {
+        position: "top-right",
+      });
       console.error(error);
+    });
+};
+
+export const getOneRecipe = (id: number) => {
+  return fetch(recipesEndpoints.getOneRecipe + id, {
+    method: "GET",
+    headers: { "Content-type": "application/json" },
+  })
+    .then(async (result) => {
+      return result.json().then((recipe) => recipe as Recipe);
+    })
+    .catch((error) => {
+      toast.error("Erreur lors de la récupération de la recette", {
+        position: "top-right",
+      });
+      console.log(error);
     });
 };
 
@@ -32,16 +50,21 @@ export const saveRecipe = async (recipe: Recipe) => {
     });
 };
 
-export const getOneRecipe = (id: number) => {
-  return fetch(recipesEndpoints.getOneRecipe + id, {
-    method: "GET",
+export const editRecipe = async (recipe: Recipe, id: number) => {
+  fetch(recipesEndpoints.editRecipe + id, {
+    method: "PUT",
     headers: { "Content-type": "application/json" },
+    body: JSON.stringify(recipe),
   })
     .then(async (result) => {
-      return result.json().then((recipe) => recipe as Recipe);
+      toast.success("La recette a bien été modifiée", {
+        position: "top-right",
+      });
     })
     .catch((error) => {
-      toast.error("Erreur lors de la récupération de la recette");
-      console.log(error);
+      toast.error("Erreur lors de l'ajout de la recette", {
+        position: "top-right",
+      });
+      console.error(error);
     });
 };

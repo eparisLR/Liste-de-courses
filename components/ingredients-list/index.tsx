@@ -9,10 +9,12 @@ import { AiTwotoneCheckSquare } from "react-icons/ai";
 
 const IngredientsList = ({
   handleIngredientsChanges,
+  recipeIngredients,
 }: IngredientsListProps) => {
-  const [ingredients, setIngredients] = useState([] as IIngredient[]);
+  const [ingredients, setIngredients] = useState(
+    recipeIngredients ? recipeIngredients : []
+  );
   const [ingredientName, setIngredientName] = useState("");
-  const [ingredientType, setIngredientType] = useState("");
 
   function handleOnAddIngredient(ingredient: IIngredient) {}
   return (

@@ -49,6 +49,7 @@ export interface IImage {
  * CLASSES
  */
 export class Recipe implements IRecipe {
+  id: number = 0;
   type: RECIPE_TYPE = RECIPE_TYPE.ENTREE;
   name: string = "";
   image: IImage = { url: "", alt: "" };

@@ -10,9 +10,10 @@ import Link from "next/link";
 import IngredientsList from "../ingredients-list";
 import StepsList from "../steps-list";
 import { useState } from "react";
-import { saveRecipe } from "@/modules/recipes/recipes.service";
+import { editRecipe, saveRecipe } from "@/modules/recipes/recipes.service";
+import { RecipeFormProps } from "./recipe-form.type";
 
-export default function RecipeForm() {
+export default function RecipeForm({ recipe }: RecipeFormProps) {
   const [ingredients, setIngredients] = useState([] as IIngredient[]);
   const [steps, setSteps] = useState([] as IStep[]);
   const [recipeName, setRecipeName] = useState("");
@@ -24,13 +25,14 @@ export default function RecipeForm() {
   return (
     <>
       <form className="flex flex-col gap-3 w-full p-8">
-        <h2>Ajout d&apos;une recette</h2>
+        <h2>{recipe ? "Edition de la recette" : "Ajout d'une recette"}</h2>
         <div className="flex gap-3">
           <Input
             name="recipeName"
             isRequired
             type="text"
             label="Recette"
+            value={recipe ? recipe.name : ""}
             placeholder="Nom de la recette..."
             onChange={(event) => setRecipeName(event.currentTarget.value)}
           />
@@ -40,13 +42,14 @@ export default function RecipeForm() {
             isRequired
             name="recipeType"
             placeholder="Sélectionnez une catégorie de recettes"
+            defaultSelectedKeys={recipe?.type ? [recipe.type] : []}
             onChange={(event) => {
               setRecipeType(Object.values(RECIPE_TYPE)[+event.target.value]);
             }}
           >
-            {Object.values(RECIPE_TYPE).map((type, index) => {
+            {Object.values(RECIPE_TYPE).map((type) => {
               return (
-                <SelectItem key={index} value={type}>
+                <SelectItem key={type} value={type}>
                   {type}
                 </SelectItem>
               );
@@ -57,13 +60,14 @@ export default function RecipeForm() {
             isRequired
             name="recipeSeason"
             placeholder="Sélectionnez une saison"
+            defaultSelectedKeys={recipe?.season ? [recipe.season] : []}
             onChange={(event) => {
               setRecipeSeason(Object.values(SEASONS)[+event.target.value]);
             }}
           >
-            {Object.values(SEASONS).map((season, index) => {
+            {Object.values(SEASONS).map((season) => {
               return (
-                <SelectItem key={index} value={season}>
+                <SelectItem key={season} value={season}>
                   {season}
                 </SelectItem>
               );
@@ -73,25 +77,38 @@ export default function RecipeForm() {
         <div className="flex gap-2 justify-between">
           <IngredientsList
             handleIngredientsChanges={handleIngredientsChanges}
+            recipeIngredients={recipe.ingredients}
           />
-          <StepsList handleStepsChanges={handleStepsChanges} />
+          <StepsList
+            handleStepsChanges={handleStepsChanges}
+            recipeSteps={recipe.steps}
+          />
         </div>
         <div className="flex flex-row-reverse gap-2 items-center">
           <Button
             onClick={() => {
-              let recipeToSave = new Recipe(
-                recipeName,
-                recipeType,
-                ingredients,
-                steps,
-                SEASONS.WINTER
-              );
-              saveRecipe(recipeToSave);
+              if (recipe) {
+                recipe.name = recipeName;
+                recipe.type = recipeType;
+                recipe.season = recipeSeason;
+                recipe.ingredients = ingredients;
+                recipe.steps = steps;
+                editRecipe(recipe, recipe.id);
+              } else {
+                let recipeToSave = new Recipe(
+                  recipeName,
+                  recipeType,
+                  ingredients,
+                  steps,
+                  SEASONS.WINTER
+                );
+                saveRecipe(recipeToSave);
+              }
             }}
           >
             Enregistrer
           </Button>
-          <Link href="/">Annuler</Link>
+          <Link href="/admin">Annuler</Link>
         </div>
       </form>
     </>
