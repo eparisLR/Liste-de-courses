@@ -77,11 +77,11 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
         <div className="flex gap-2 justify-between">
           <IngredientsList
             handleIngredientsChanges={handleIngredientsChanges}
-            recipeIngredients={recipe.ingredients}
+            recipeIngredients={recipe ? recipe.ingredients : []}
           />
           <StepsList
             handleStepsChanges={handleStepsChanges}
-            recipeSteps={recipe.steps}
+            recipeSteps={recipe ? recipe.steps : []}
           />
         </div>
         <div className="flex flex-row-reverse gap-2 items-center">
