@@ -1,5 +1,5 @@
-import { getOneRecipe } from "@/modules/recipes/recipes.service";
-import { Recipe } from "@/modules/recipes/recipes.types";
+import { getOneRecipe } from "../../../modules/recipes/recipes.service";
+import { Recipe } from "../../../modules/recipes/recipes.types";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Image from "next/image";

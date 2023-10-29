@@ -1,5 +1,5 @@
-import { getAllRecipes } from "@/modules/recipes/recipes.service";
-import { Recipe } from "@/modules/recipes/recipes.types";
+import { getAllRecipes } from "../../modules/recipes/recipes.service";
+import { Recipe } from "../../modules/recipes/recipes.types";
 import Link from "next/link";
 import {
   Table,

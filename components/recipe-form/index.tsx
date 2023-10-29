@@ -4,13 +4,13 @@ import {
   RECIPE_TYPE,
   Recipe,
   SEASONS,
-} from "@/modules/recipes/recipes.types";
+} from "../../modules/recipes/recipes.types";
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 import Link from "next/link";
 import IngredientsList from "../ingredients-list";
 import StepsList from "../steps-list";
 import { useState } from "react";
-import { editRecipe, saveRecipe } from "@/modules/recipes/recipes.service";
+import { editRecipe, saveRecipe } from "../../modules/recipes/recipes.service";
 import { RecipeFormProps } from "./recipe-form.type";
 
 export default function RecipeForm({ recipe }: RecipeFormProps) {

@@ -1,7 +1,7 @@
 import {
   IIngredient,
   INGREDIENTS_TYPES,
-} from "@/modules/recipes/recipes.types";
+} from "../../modules/recipes/recipes.types";
 import { Button, Chip, Input, Select, SelectItem } from "@nextui-org/react";
 import { useState } from "react";
 import { IngredientsListProps } from "./ingredients-list.type";

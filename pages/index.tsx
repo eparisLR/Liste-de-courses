@@ -1,5 +1,5 @@
-import RecipesList from "@/components/recipes-list";
-import { RECIPE_TYPE } from "@/modules/recipes/recipes.types";
+import RecipesList from "../components/recipes-list";
+import { RECIPE_TYPE } from "../modules/recipes/recipes.types";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";

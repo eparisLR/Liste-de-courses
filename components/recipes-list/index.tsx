@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAllRecipes } from "@/modules/recipes/recipes.service";
-import { Recipe } from "@/modules/recipes/recipes.types";
+import { getAllRecipes } from "../../modules/recipes/recipes.service";
+import { Recipe } from "../../modules/recipes/recipes.types";
 import RecipeCard from "../recipe-card";
 import Link from "next/link";
 

@@ -1,4 +1,4 @@
-import { IStep, Step } from "@/modules/recipes/recipes.types";
+import { IStep, Step } from "../../modules/recipes/recipes.types";
 import { Button, Input, Textarea } from "@nextui-org/react";
 import { useState } from "react";
 import { StepsListProps } from "./steps-list.type";
