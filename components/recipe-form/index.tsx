@@ -1,6 +1,7 @@
 import {
   IIngredient,
   IStep,
+  Image,
   RECIPE_TYPE,
   Recipe,
   SEASONS,

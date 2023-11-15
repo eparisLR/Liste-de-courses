@@ -1,6 +1,6 @@
 import { IRecipeCardProps } from "./recipe-card.type";
 import Image from "next/image";
-import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react";
+import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Link from "next/link";
 
 const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
@@ -9,8 +9,8 @@ const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
       <Card shadow="sm" isPressable className="ldc-card">
         <CardBody className="overflow-visible">
           <Image
-            src={recipe.image.url}
-            alt={recipe.image.alt}
+            src="/images/image-illustration.jpg"
+            alt="Image illustration"
             className="w-full object-cover h-[200px]"
             width="150"
             height="150"
