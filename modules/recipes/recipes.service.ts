@@ -68,3 +68,20 @@ export const editRecipe = async (recipe: Recipe, id: number) => {
       console.error(error);
     });
 };
+
+export const deleteRecipe = async (recipeId: number) => {
+  fetch(recipesEndpoints.deleteRecipe + recipeId, {
+    method: "DELETE",
+    headers: { "Content-type": "application/json" }
+  }).then(async (result) => {
+    toast.success("La recette a bien été supprimée", {
+      position: "top-right",
+    });
+  })
+  .catch((error) => {
+    toast.error("Erreur lors de la suppression de la recette", {
+      position: "top-right",
+    });
+    console.error(error);
+  });
+}

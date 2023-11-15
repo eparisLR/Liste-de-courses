@@ -37,7 +37,7 @@ export default function Home() {
       </Head>
       <div className="flex container w-full">
         <div className=" max-h-screen sticky top-0">
-          <ul className="flex h-full w-[13vw] flex-col justify-around p-12">
+          <ul className="flex min-h-[100vh] h-full w-[13vw] flex-col justify-around p-12">
             <li className="w-100">
               <UserButton afterSignOutUrl="/" />
             </li>

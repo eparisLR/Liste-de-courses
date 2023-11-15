@@ -1,7 +1,8 @@
-import { getAllRecipes } from "../../modules/recipes/recipes.service";
+import { deleteRecipe, getAllRecipes } from "../../modules/recipes/recipes.service";
 import { Recipe } from "../../modules/recipes/recipes.types";
 import Link from "next/link";
 import {
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -49,11 +50,13 @@ export default function Administration() {
                   <TableCell>{recipe.name}</TableCell>
                   <TableCell className="flex gap-3 justify-end">
                     <Link
-                      href={{ pathname: "/admin/edit", query: { id: idx + 1 } }}
+                      href={{ pathname: "/admin/edit", query: { id: recipe.id } }}
                     >
                       <FaEdit size="23" />
                     </Link>
-                    <MdDeleteForever size="23" className="text-danger" />
+                    <Button isIconOnly color="danger" aria-label="Delete recipe" onClick={() => {deleteRecipe(recipe.id).then(_ => setRecipes(recipes.filter(r => r.id !== recipe.id)))}}>
+                    <MdDeleteForever size="23" color="danger" />
+                    </Button>
                   </TableCell>
                 </TableRow>
               );
