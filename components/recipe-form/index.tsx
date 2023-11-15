@@ -14,11 +14,11 @@ import { editRecipe, saveRecipe } from "../../modules/recipes/recipes.service";
 import { RecipeFormProps } from "./recipe-form.type";
 
 export default function RecipeForm({ recipe }: RecipeFormProps) {
-  const [ingredients, setIngredients] = useState([] as IIngredient[]);
-  const [steps, setSteps] = useState([] as IStep[]);
-  const [recipeName, setRecipeName] = useState("");
-  const [recipeType, setRecipeType] = useState(RECIPE_TYPE.ENTREE);
-  const [recipeSeason, setRecipeSeason] = useState(SEASONS.AUTUMN);
+  const [ingredients, setIngredients] = useState(recipe ? recipe.ingredients : [] as IIngredient[]);
+  const [steps, setSteps] = useState(recipe ? recipe.steps : [] as IStep[]);
+  const [recipeName, setRecipeName] = useState(recipe ? recipe.name : "");
+  const [recipeType, setRecipeType] = useState(recipe ? recipe.type : RECIPE_TYPE.ENTREE);
+  const [recipeSeason, setRecipeSeason] = useState(recipe ? recipe.season : SEASONS.AUTUMN);
   const handleIngredientsChanges = (ingredients: IIngredient[]) =>
     setIngredients(ingredients);
   const handleStepsChanges = (steps: IStep[]) => setSteps(steps);
@@ -32,7 +32,7 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
             isRequired
             type="text"
             label="Recette"
-            value={recipe ? recipe.name : ""}
+            value={recipeName}
             placeholder="Nom de la recette..."
             onChange={(event) => setRecipeName(event.currentTarget.value)}
           />
@@ -42,7 +42,7 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
             isRequired
             name="recipeType"
             placeholder="Sélectionnez une catégorie de recettes"
-            defaultSelectedKeys={recipe?.type ? [recipe.type] : []}
+            defaultSelectedKeys={[recipeType]}
             onChange={(event) => {
               setRecipeType(Object.values(RECIPE_TYPE)[+event.target.value]);
             }}
@@ -60,7 +60,7 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
             isRequired
             name="recipeSeason"
             placeholder="Sélectionnez une saison"
-            defaultSelectedKeys={recipe?.season ? [recipe.season] : []}
+            defaultSelectedKeys={[recipeSeason]}
             onChange={(event) => {
               setRecipeSeason(Object.values(SEASONS)[+event.target.value]);
             }}
@@ -77,11 +77,11 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
         <div className="flex gap-2 justify-between">
           <IngredientsList
             handleIngredientsChanges={handleIngredientsChanges}
-            recipeIngredients={recipe ? recipe.ingredients : []}
+            recipeIngredients={ingredients}
           />
           <StepsList
             handleStepsChanges={handleStepsChanges}
-            recipeSteps={recipe ? recipe.steps : []}
+            recipeSteps={steps}
           />
         </div>
         <div className="flex flex-row-reverse gap-2 items-center">
@@ -100,7 +100,7 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
                   recipeType,
                   ingredients,
                   steps,
-                  SEASONS.WINTER
+                  recipeSeason
                 );
                 saveRecipe(recipeToSave);
               }
