@@ -15,6 +15,7 @@ import { FaCarrot, FaPlateWheat } from "react-icons/fa6";
 import { LuUtensilsCrossed } from "react-icons/lu";
 import { UserButton, currentUser, useUser } from "@clerk/nextjs";
 import { IoSettingsSharp } from "react-icons/io5";
+import CartButton from "../components/cart-button";
 
 export default function Home() {
   const router = useRouter();
@@ -35,19 +36,18 @@ export default function Home() {
         <meta name="descirption" content="Générateur de liste de courses" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div className="flex container w-full">
+      <header className="flex">
+        <CartButton />
+        <UserButton afterSignOutUrl="/" />
+        {isAdmin() && (
+          <Link href={"/admin"} className="flex">
+            <IoSettingsSharp size="23" className="mr-2" /> Gestion
+          </Link>
+        )}
+      </header>
+      <main className="flex container w-full">
         <div className=" max-h-screen sticky top-0">
           <ul className="flex min-h-[100vh] h-full w-[13vw] flex-col justify-around p-12">
-            <li className="w-100">
-              <UserButton afterSignOutUrl="/" />
-            </li>
-            {isAdmin() && (
-              <li className="w-100">
-                <Link href={"/admin"} className="flex">
-                  <IoSettingsSharp size="23" className="mr-2" /> Gestion
-                </Link>
-              </li>
-            )}
             <li className="flex w-100 text-blue-900">
               <LuUtensilsCrossed size="23" className="mr-2" />
               Toutes
@@ -99,7 +99,7 @@ export default function Home() {
         <div className="w-100 p-2">
           <RecipesList />
         </div>
-      </div>
+      </main>
     </>
   );
 }

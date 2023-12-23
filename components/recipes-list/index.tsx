@@ -22,12 +22,9 @@ export default function RecipesList() {
         {recipes.map((r, index) => {
           const recipeId = index + 1;
           return (
-            <Link
-              href={{ pathname: "/recipes/view", query: { id: recipeId } }}
-              key={`${r.name}-${index}`}
-            >
+            <div key={`${r.name}-${index}`}>
               <RecipeCard recipeId={recipeId} recipe={r} />
-            </Link>
+            </div>
           );
         })}
       </div>
