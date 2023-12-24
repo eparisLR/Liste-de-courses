@@ -2,12 +2,14 @@ import { IRecipeCardProps } from "./recipe-card.type";
 import Image from "next/image";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Link from "next/link";
-import { useAppSelector } from "../../lib/store";
 import CartIcon from "../cart-icon";
+import { getRecipesFromStorage } from "../../modules/cart/cart.service";
+import { useState } from "react";
 
 const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
-  const recipesInCart = useAppSelector((state) => state.cart.recipes);
-  const isInCart = recipesInCart.some((recipe) => recipe.id === recipeId);
+  const [isInCart, setIsInCart] = useState<boolean>(
+    getRecipesFromStorage().recipeIds.includes(recipeId)
+  );
 
   return (
     <>
@@ -29,7 +31,11 @@ const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
               href={{ pathname: "recipes/edit", query: { id: recipeId } }}
             ></Link>
           </b>
-          <CartIcon isInCart={isInCart} recipe={recipe} />
+          <CartIcon
+            setIsInCart={setIsInCart}
+            isInCart={isInCart}
+            recipe={recipe}
+          />
         </CardFooter>
       </Card>
     </>

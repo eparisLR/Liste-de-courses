@@ -20,10 +20,9 @@ export default function RecipesList() {
     <>
       <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
         {recipes.map((r, index) => {
-          const recipeId = index + 1;
           return (
             <div key={`${r.name}-${index}`}>
-              <RecipeCard recipeId={recipeId} recipe={r} />
+              <RecipeCard recipeId={r.id} recipe={r} />
             </div>
           );
         })}

@@ -2,6 +2,7 @@
  * INTERFACES
  */
 export interface IRecipe {
+  id: number;
   name: string;
   image: IImage;
   season: SEASONS;

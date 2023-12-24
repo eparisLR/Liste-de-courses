@@ -9,7 +9,7 @@ export const getAllRecipes = async () => {
     headers: { "Content-type": "application/json" },
   })
     .then(async (results) => {
-      return results.json().then((recipes) => recipes as Recipe[]);
+      return results.json().then((recipes) => recipes as IRecipe[]);
     })
     .catch((error) => {
       toast.error("Erreur lors de la récupération des recettes", {
@@ -72,16 +72,17 @@ export const editRecipe = async (recipe: Recipe, id: number) => {
 export const deleteRecipe = async (recipeId: number) => {
   fetch(recipesEndpoints.deleteRecipe + recipeId, {
     method: "DELETE",
-    headers: { "Content-type": "application/json" }
-  }).then(async (result) => {
-    toast.success("La recette a bien été supprimée", {
-      position: "top-right",
-    });
+    headers: { "Content-type": "application/json" },
   })
-  .catch((error) => {
-    toast.error("Erreur lors de la suppression de la recette", {
-      position: "top-right",
+    .then(async (result) => {
+      toast.success("La recette a bien été supprimée", {
+        position: "top-right",
+      });
+    })
+    .catch((error) => {
+      toast.error("Erreur lors de la suppression de la recette", {
+        position: "top-right",
+      });
+      console.error(error);
     });
-    console.error(error);
-  });
-}
+};

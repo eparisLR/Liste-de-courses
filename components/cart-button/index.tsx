@@ -12,10 +12,24 @@ import {
 } from "@nextui-org/react";
 import { useAppDispatch, useAppSelector } from "../../lib/store";
 import { BsCart4 } from "react-icons/bs";
+import { useEffect, useState } from "react";
+import { getRecipesFromStorage } from "../../modules/cart/cart.service";
+import { Recipe } from "../../modules/recipes/recipes.types";
+import { getAllRecipes } from "../../modules/recipes/recipes.service";
+import Link from "next/link";
 
 const CartButton = () => {
-  const recipesInCart = useAppSelector((state) => state.cart.recipes);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await getAllRecipes();
+      if (res) {
+        setRecipes([...res]);
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -30,18 +44,25 @@ const CartButton = () => {
                 Recettes sélectionnées
               </ModalHeader>
               <ModalBody>
-                {recipesInCart.map((recipe, id) => (
-                  <Card key={recipe.name + id}>
-                    <CardBody className="flex">
-                      <p>{recipe.name}</p>
-                    </CardBody>
-                  </Card>
-                ))}
+                {recipes
+                  .filter((recipe) =>
+                    getRecipesFromStorage().recipeIds.includes(recipe.id)
+                  )
+                  .map((recipe, id) => (
+                    <Card key={recipe.name + id}>
+                      <CardBody className="flex">
+                        <p>{recipe.name}</p>
+                      </CardBody>
+                    </Card>
+                  ))}
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
-                  Close
+                  Fermer
                 </Button>
+                <Link href={"recipes/list"} onClick={onClose}>
+                  Générer la liste de courses
+                </Link>
               </ModalFooter>
             </>
           )}
