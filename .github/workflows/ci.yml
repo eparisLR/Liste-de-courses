@@ -27,7 +27,7 @@ jobs:
         run: docker build . --file ./Dockerfile --tag nebich/ldc:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
 
       - name: Login to the registry
-        uses: ./
+        uses: docker/login-action@v3
         with:
           registry: ${{ secrets.REGISTRY_URL }}
           username: ${{ secrets.REGISTRY_USERNAME }}
