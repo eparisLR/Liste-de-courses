@@ -10,7 +10,6 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
-import { useAppDispatch, useAppSelector } from "../../lib/store";
 import { BsCart4 } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { getRecipesFromStorage } from "../../modules/cart/cart.service";
