@@ -1,0 +1,45 @@
+name: CI-LDC
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dpendencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Build the docker image
+        run: docker build . --file ./Dockerfile --tag nebich/ldc:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
+
+      - name: Login to the registry
+        uses: ./
+        with:
+          registry: ${{ secrets.REGISTRY_URL }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD}}
+
+      - name: Push to the registry
+        run: docker push nebich/ldc:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
+
+      - name: Update Minor version
+        uses: hmanzur/actions-set-secret@v2.0.0
+        with:
+          name: ${{ secrets.UPDATE_TYPE }}
+          value: $((${{ secrets.MINOR }}+1))
+          repository: eparisLR/listes-de-courses
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
