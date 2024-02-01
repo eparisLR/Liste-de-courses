@@ -36,17 +36,27 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD}}
 
-      - name: Push to the registry
+      - name: Get version informations
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            grosbi.de/nebich/ldc         
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha   
+
+      - name: Build and push to the registry
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: true
-          tags: grosbi.de/nebich/ldc:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
-
-      - name: Update Minor version
-        uses: hmanzur/actions-set-secret@v2.0.0
-        with:
-          name: ${{ secrets.UPDATE_TYPE }}
-          value: $((${{ secrets.MINOR }}+1))
-          repository: eparisLR/listes-de-courses
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
