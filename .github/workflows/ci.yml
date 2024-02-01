@@ -41,7 +41,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: nebich-ldc:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
+          tags: grosbi.de/nebich/ldc:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
 
       - name: Update Minor version
         uses: hmanzur/actions-set-secret@v2.0.0
