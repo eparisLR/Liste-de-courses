@@ -40,7 +40,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: nebich/ldc:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
+          tags: ${{ secrets.REGISTRY_URL }}/nebich/ldc:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
 
       - name: Update Minor version
         uses: hmanzur/actions-set-secret@v2.0.0
