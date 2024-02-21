@@ -7,5 +7,5 @@ import { authMiddleware } from "@clerk/nextjs";
 // This function can be marked `async` if using `await` inside
 export default authMiddleware({});
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/"],
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };

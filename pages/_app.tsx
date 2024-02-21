@@ -7,7 +7,10 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      {...pageProps}
+      afterSignInUrl="http://localhost:3000/tes-couilles/"
+    >
       <NextUIProvider>
         <Component {...pageProps} />
         <Toaster />
