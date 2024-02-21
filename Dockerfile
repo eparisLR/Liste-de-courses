@@ -32,7 +32,7 @@ ENV CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
 
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
-  elif [ -f package-lock.json ]; then NEXT_PUBLIC_BASE_RECIPES_API_URL=$NEXT_PUBLIC_BASE_RECIPES_API_URL NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY CLERK_SECRET_KEY=$CLERK_SECRET_KEY npm run build; \
+  elif [ -f package-lock.json ]; then npm run build; \
   elif [ -f pnpm-lock.yaml ]; then pnpm run build; \
   else echo "Lockfile not found." && exit 1; \
   fi
