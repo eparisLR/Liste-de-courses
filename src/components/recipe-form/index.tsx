@@ -15,11 +15,17 @@ import { editRecipe, saveRecipe } from "../../modules/recipes/recipes.service";
 import { RecipeFormProps } from "./recipe-form.type";
 
 export default function RecipeForm({ recipe }: RecipeFormProps) {
-  const [ingredients, setIngredients] = useState(recipe ? recipe.ingredients : [] as IIngredient[]);
-  const [steps, setSteps] = useState(recipe ? recipe.steps : [] as IStep[]);
+  const [ingredients, setIngredients] = useState(
+    recipe ? recipe.ingredients : ([] as IIngredient[])
+  );
+  const [steps, setSteps] = useState(recipe ? recipe.steps : ([] as IStep[]));
   const [recipeName, setRecipeName] = useState(recipe ? recipe.name : "");
-  const [recipeType, setRecipeType] = useState(recipe ? recipe.type : RECIPE_TYPE.ENTREE);
-  const [recipeSeason, setRecipeSeason] = useState(recipe ? recipe.season : SEASONS.AUTUMN);
+  const [recipeType, setRecipeType] = useState(
+    recipe ? recipe.type : RECIPE_TYPE.ENTREE
+  );
+  const [recipeSeason, setRecipeSeason] = useState(
+    recipe ? recipe.season : SEASONS.AUTUMN
+  );
   const handleIngredientsChanges = (ingredients: IIngredient[]) =>
     setIngredients(ingredients);
   const handleStepsChanges = (steps: IStep[]) => setSteps(steps);

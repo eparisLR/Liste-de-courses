@@ -1,7 +1,8 @@
+"use client";
 import RecipesList from "../components/recipes-list";
 import { RECIPE_TYPE } from "../modules/recipes/recipes.types";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import {
   GiPumpkin,
   GiFlowerPot,

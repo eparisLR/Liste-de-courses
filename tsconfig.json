@@ -15,13 +15,21 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/sign-up/[[...index.tsx]]", "pages/sign-in/[[...index.tsx]]"  ],
+    "**/*.tsx",
+    "pages/sign-up/[[...index.tsx]]",
+    "pages/sign-in/[[...index.tsx]]",
+    ".next/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
