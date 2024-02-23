@@ -47,7 +47,7 @@ jobs:
             grosbi.de/nebich/ldc
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=semver,pattern={{major}}.{{minor}}
+            type=ref,event=branch
 
       - name: Build and push to the registry
         uses: docker/build-push-action@v5
