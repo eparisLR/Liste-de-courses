@@ -1,7 +1,6 @@
 import RecipesList from "../components/recipes-list";
 import { RECIPE_TYPE } from "../modules/recipes/recipes.types";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import {
   GiPumpkin,
@@ -13,21 +12,10 @@ import { BsSnow2 } from "react-icons/bs";
 import { PiSunHorizonDuotone } from "react-icons/pi";
 import { FaCarrot, FaPlateWheat } from "react-icons/fa6";
 import { LuUtensilsCrossed } from "react-icons/lu";
-import { UserButton, currentUser, useUser } from "@clerk/nextjs";
-import { IoSettingsSharp } from "react-icons/io5";
 import CartButton from "../components/cart-button";
 
 export default function Home() {
   const router = useRouter();
-  const { user } = useUser();
-  const isAdmin = () => {
-    let isAdministrator = false;
-    user?.organizationMemberships?.forEach((organizationMembersip) => {
-      if (organizationMembersip.organization.name === "Administration")
-        isAdministrator = true;
-    });
-    return isAdministrator;
-  };
 
   return (
     <>
@@ -38,12 +26,6 @@ export default function Home() {
       </Head>
       <header className="flex">
         <CartButton />
-        <UserButton afterSignOutUrl="/" />
-        {isAdmin() && (
-          <Link href={"/admin"} className="flex">
-            <IoSettingsSharp size="23" className="mr-2" /> Gestion
-          </Link>
-        )}
       </header>
       <main className="flex container w-full">
         <div className=" max-h-screen sticky top-0">
