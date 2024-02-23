@@ -2,9 +2,6 @@ name: CI-LDC
 
 env:
   NEXT_PUBLIC_BASE_RECIPES_API_URL: ${{ vars.NEXT_PUBLIC_BASE_RECIPES_API_URL }}
-  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ vars.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
-  CLERK_SECRET_KEY: ${{ vars.CLERK_SECRET_KEY }}
-
 on:
   push:
     branches: [main]
@@ -50,13 +47,7 @@ jobs:
             grosbi.de/nebich/ldc
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
 
       - name: Build and push to the registry
         uses: docker/build-push-action@v5
@@ -67,5 +58,3 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             NEXT_PUBLIC_BASE_RECIPES_API_URL
-            NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
-            CLERK_SECRET_KEY
