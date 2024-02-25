@@ -1,20 +1,16 @@
 import { IRecipeCardProps } from "./recipe-card.type";
 import Image from "next/image";
-import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Link from "next/link";
-import CartIcon from "../cart-icon";
-import { getRecipesFromStorage } from "../../modules/cart/cart.service";
+import CartIcon from "../../cart/icon";
 import { useState } from "react";
 
 const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
-  const [isInCart, setIsInCart] = useState<boolean>(
-    getRecipesFromStorage().recipeIds.includes(recipeId)
-  );
+  const [isInCart, setIsInCart] = useState<boolean>(true);
 
   return (
     <>
-      <Card shadow="sm" isPressable className="ldc-card">
-        <CardBody className="overflow-visible">
+      <div>
+        <div className="overflow-visible">
           <Image
             src="/images/image-illustration.jpg"
             alt="Image illustration"
@@ -23,8 +19,8 @@ const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
             height="150"
             priority={false}
           />
-        </CardBody>
-        <CardFooter className="text-small justify-between">
+        </div>
+        <div className="text-small justify-between">
           <b>
             {recipe.name}{" "}
             <Link
@@ -34,10 +30,10 @@ const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
           <CartIcon
             setIsInCart={setIsInCart}
             isInCart={isInCart}
-            recipe={recipe}
+            recipeId={recipe.id}
           />
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
     </>
   );
 };

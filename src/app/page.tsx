@@ -1,5 +1,5 @@
 "use client";
-import RecipesList from "../components/recipes-list";
+import RecipesList from "../components/recipes/list";
 import { RECIPE_TYPE } from "../modules/recipes/recipes.types";
 import Head from "next/head";
 import { useRouter } from "next/navigation";
@@ -13,7 +13,7 @@ import { BsSnow2 } from "react-icons/bs";
 import { PiSunHorizonDuotone } from "react-icons/pi";
 import { FaCarrot, FaPlateWheat } from "react-icons/fa6";
 import { LuUtensilsCrossed } from "react-icons/lu";
-import CartButton from "../components/cart-button";
+import CartButton from "../components/cart/button";
 
 export default function Home() {
   const router = useRouter();

@@ -1,5 +1,4 @@
-import { IStep, Step } from "../../modules/recipes/recipes.types";
-import { Button, Input, Textarea } from "@nextui-org/react";
+import { Step } from "../../../modules/recipes/recipes.types";
 import { useState } from "react";
 import { StepsListProps } from "./steps-list.type";
 
@@ -11,20 +10,17 @@ const StepsList = ({ handleStepsChanges, recipeSteps }: StepsListProps) => {
   return (
     <div className="flex flex-col gap-2 w-2/4 bg-zinc-100 p-2 rounded">
       <div className="flex flex-col w-full">
-        <Input
+        <input
           name="stepTitle"
           type="text"
-          label="Titre de l'étape"
           onChange={(event) => setStepTitle(event.currentTarget.value)}
         />
-        <Textarea
-          label="Instructions"
-          labelPlacement="outside"
+        <textarea
           name="stepInstrucions"
           placeholder="Entrez les instructions pour cette étape"
           onChange={(event) => setStepDesription(event.currentTarget.value)}
         />
-        <Button
+        <button
           onClick={() => {
             const updatedSteps = [
               ...steps,
@@ -45,7 +41,7 @@ const StepsList = ({ handleStepsChanges, recipeSteps }: StepsListProps) => {
           }}
         >
           Ajouter l&apos;&eacute;tape
-        </Button>
+        </button>
       </div>
       {steps &&
         steps.map((step) => (

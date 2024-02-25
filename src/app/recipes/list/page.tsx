@@ -1,17 +1,7 @@
-import { useEffect, useState } from "react";
 import { getAllIngredients } from "../../../modules/cart/cart.service";
 
-export default function PageListGenerator() {
-  const [allIngredients, setIngredients] = useState<string[]>();
-  useEffect(() => {
-    async function fetchData() {
-      const res = await getAllIngredients();
-      if (res) {
-        setIngredients([...res]);
-      }
-    }
-    fetchData();
-  }, []);
+export default async function PageListGenerator() {
+  const allIngredients = await getAllIngredients();
 
   return (
     <>

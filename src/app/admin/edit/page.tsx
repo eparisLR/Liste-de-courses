@@ -1,4 +1,4 @@
-import RecipeForm from "../../../components/recipe-form";
+import RecipeForm from "../../../components/recipes/form";
 import { getOneRecipe } from "../../../modules/recipes/recipes.service";
 import { Recipe } from "../../../modules/recipes/recipes.types";
 import { useRouter } from "next/navigation";

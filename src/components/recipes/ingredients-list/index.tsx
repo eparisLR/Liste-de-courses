@@ -1,8 +1,7 @@
 import {
   IIngredient,
   INGREDIENTS_TYPES,
-} from "../../modules/recipes/recipes.types";
-import { Button, Chip, Input, Select, SelectItem } from "@nextui-org/react";
+} from "../../../modules/recipes/recipes.types";
 import { useState } from "react";
 import { IngredientsListProps } from "./ingredients-list.type";
 import { AiTwotoneCheckSquare } from "react-icons/ai";
@@ -20,13 +19,12 @@ const IngredientsList = ({
   return (
     <div className="flex flex-col gap-2 w-2/4 bg-zinc-100 p-2 rounded">
       <div className="flex gap-2 items-center w-full">
-        <Input
+        <input
           name="ingredient"
           type="text"
-          label="Ingrédient"
           onChange={(event) => setIngredientName(event.currentTarget.value)}
         />
-        <Button
+        <button
           onClick={() => {
             const updatedIngrdients = [
               ...ingredients,
@@ -45,23 +43,12 @@ const IngredientsList = ({
           }}
         >
           Ajouter l&apos;ingredient
-        </Button>
+        </button>
       </div>
       {ingredients.map((ingredient, index) => (
-        <Chip
-          key={index}
-          onClose={() => {
-            setIngredients(
-              ingredients.filter((igd) => igd.name !== ingredient.name)
-            );
-            handleIngredientsChanges(ingredients);
-          }}
-          variant="flat"
-          className="flex"
-          startContent={<AiTwotoneCheckSquare size="10" />}
-        >
+        <div key={index} className="flex">
           <span>{ingredient.name}</span>
-        </Chip>
+        </div>
       ))}
     </div>
   );

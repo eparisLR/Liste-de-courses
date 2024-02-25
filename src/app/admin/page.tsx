@@ -4,15 +4,6 @@ import {
 } from "../../modules/recipes/recipes.service";
 import { Recipe } from "../../modules/recipes/recipes.types";
 import Link from "next/link";
-import {
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-} from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
@@ -38,20 +29,18 @@ export default function Administration() {
         <AiOutlinePlus size="23" />
         <span>Ajout d&apos;une recette</span>
       </Link>
-      <Table>
-        <TableHeader>
-          <TableColumn>Recette</TableColumn>
-          <TableColumn className="flex justify-end items-center">
-            Actions
-          </TableColumn>
-        </TableHeader>
-        <TableBody>
+      <table>
+        <th>
+          <td>Recette</td>
+          <td className="flex justify-end items-center">Actions</td>
+        </th>
+        <tbody>
           {recipes &&
             recipes.map((recipe, idx) => {
               return (
-                <TableRow key={idx}>
-                  <TableCell>{recipe.name}</TableCell>
-                  <TableCell className="flex gap-3 justify-end">
+                <tr key={idx}>
+                  <td>{recipe.name}</td>
+                  <td className="flex gap-3 justify-end">
                     <Link
                       href={{
                         pathname: "/admin/edit",
@@ -60,8 +49,7 @@ export default function Administration() {
                     >
                       <FaEdit size="23" />
                     </Link>
-                    <Button
-                      isIconOnly
+                    <button
                       color="danger"
                       aria-label="Delete recipe"
                       onClick={() => {
@@ -71,13 +59,13 @@ export default function Administration() {
                       }}
                     >
                       <MdDeleteForever size="23" color="danger" />
-                    </Button>
-                  </TableCell>
-                </TableRow>
+                    </button>
+                  </td>
+                </tr>
               );
             })}
-        </TableBody>
-      </Table>
+        </tbody>
+      </table>
     </>
   );
 }

@@ -1,14 +1,14 @@
 import { ICartIconProps } from "./cart-icon.type";
 import { BsCartPlusFill } from "react-icons/bs";
 import { BsFillCartDashFill } from "react-icons/bs";
-import { addToCart, removeFromCart } from "../../modules/cart/cart.service";
+import { addToCart, removeFromCart } from "../../../modules/cart/cart.service";
 
-const CartIcon = ({ isInCart, recipe, setIsInCart }: ICartIconProps) => {
+const CartIcon = ({ isInCart, recipeId, setIsInCart }: ICartIconProps) => {
   return isInCart ? (
     <BsFillCartDashFill
       size={23}
       onClick={(_) => {
-        removeFromCart(recipe.id);
+        removeFromCart(recipeId);
         setIsInCart(!isInCart);
       }}
     />
@@ -16,7 +16,7 @@ const CartIcon = ({ isInCart, recipe, setIsInCart }: ICartIconProps) => {
     <BsCartPlusFill
       size={23}
       onClick={(_) => {
-        addToCart(recipe.id);
+        addToCart(recipeId);
         setIsInCart(!isInCart);
       }}
     />

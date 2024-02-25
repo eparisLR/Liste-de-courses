@@ -1,17 +1,18 @@
 import {
   IIngredient,
   IStep,
-  Image,
   RECIPE_TYPE,
   Recipe,
   SEASONS,
-} from "../../modules/recipes/recipes.types";
-import { Button, Input, Select, SelectItem } from "@nextui-org/react";
+} from "../../../modules/recipes/recipes.types";
 import Link from "next/link";
 import IngredientsList from "../ingredients-list";
 import StepsList from "../steps-list";
 import { useState } from "react";
-import { editRecipe, saveRecipe } from "../../modules/recipes/recipes.service";
+import {
+  editRecipe,
+  saveRecipe,
+} from "../../../modules/recipes/recipes.service";
 import { RecipeFormProps } from "./recipe-form.type";
 
 export default function RecipeForm({ recipe }: RecipeFormProps) {
@@ -34,52 +35,42 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
       <form className="flex flex-col gap-3 w-full p-8">
         <h2>{recipe ? "Edition de la recette" : "Ajout d'une recette"}</h2>
         <div className="flex gap-3">
-          <Input
+          <input
             name="recipeName"
-            isRequired
             type="text"
-            label="Recette"
             value={recipeName}
             placeholder="Nom de la recette..."
             onChange={(event) => setRecipeName(event.currentTarget.value)}
           />
 
-          <Select
-            label="Catégorie de la recette"
-            isRequired
+          <select
             name="recipeType"
-            placeholder="Sélectionnez une catégorie de recettes"
-            defaultSelectedKeys={[recipeType]}
             onChange={(event) => {
               setRecipeType(Object.values(RECIPE_TYPE)[+event.target.value]);
             }}
           >
             {Object.values(RECIPE_TYPE).map((type) => {
               return (
-                <SelectItem key={type} value={type}>
+                <option key={type} value={type}>
                   {type}
-                </SelectItem>
+                </option>
               );
             })}
-          </Select>
-          <Select
-            label="Saison de la recette"
-            isRequired
+          </select>
+          <select
             name="recipeSeason"
-            placeholder="Sélectionnez une saison"
-            defaultSelectedKeys={[recipeSeason]}
             onChange={(event) => {
               setRecipeSeason(Object.values(SEASONS)[+event.target.value]);
             }}
           >
             {Object.values(SEASONS).map((season) => {
               return (
-                <SelectItem key={season} value={season}>
+                <option key={season} value={season}>
                   {season}
-                </SelectItem>
+                </option>
               );
             })}
-          </Select>
+          </select>
         </div>
         <div className="flex gap-2 justify-between">
           <IngredientsList
@@ -92,7 +83,7 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
           />
         </div>
         <div className="flex flex-row-reverse gap-2 items-center">
-          <Button
+          <button
             onClick={() => {
               if (recipe) {
                 recipe.name = recipeName;
@@ -114,7 +105,7 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
             }}
           >
             Enregistrer
-          </Button>
+          </button>
           <Link href="/admin">Annuler</Link>
         </div>
       </form>
