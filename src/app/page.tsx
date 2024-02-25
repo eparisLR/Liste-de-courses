@@ -79,7 +79,7 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <div className="w-100 p-2">
+        <div className="w-full p-2">
           <RecipesList />
         </div>
       </main>
