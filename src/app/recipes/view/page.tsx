@@ -26,24 +26,10 @@ export default async function RecipeView({
           />
         )}
         <h3 className="font-bold">Ingr&eacute;dients :</h3>
-        <ul>
-          {recipe &&
-            recipe?.ingredients.map((ingredient, idx) => {
-              return <li key={ingredient.name + idx}>{ingredient.name}</li>;
-            })}
-        </ul>
+        <ul></ul>
       </div>
       <div className="flex flex-col">
         <h2 className="font-bold text-2xl mb-2">{recipe && recipe?.name}</h2>
-        {recipe &&
-          recipe?.steps.map((step, idx) => {
-            return (
-              <>
-                <h3 className="font-bold">{step.name}</h3>
-                <p>{step.instructions}</p>
-              </>
-            );
-          })}
       </div>
     </div>
   );

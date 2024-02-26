@@ -77,29 +77,7 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
           />
         </div>
         <div className="flex flex-row-reverse gap-2 items-center">
-          <button
-            onClick={() => {
-              if (recipe) {
-                recipe.name = recipeName;
-                recipe.type = recipeType;
-                recipe.season = recipeSeason;
-                recipe.ingredients = recipeIngredients;
-                recipe.steps = recipeSteps;
-                editRecipe(recipe, recipe.id);
-              } else {
-                let recipeToSave = new Recipe(
-                  recipeName,
-                  recipeType,
-                  recipeIngredients,
-                  recipeSteps,
-                  recipeSeason
-                );
-                saveRecipe(recipeToSave);
-              }
-            }}
-          >
-            Enregistrer
-          </button>
+          <button>Enregistrer</button>
           <Link href="/admin">Annuler</Link>
         </div>
       </form>

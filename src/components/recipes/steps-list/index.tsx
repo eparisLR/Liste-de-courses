@@ -19,28 +19,7 @@ const StepsList = ({ handleStepsChanges, recipeSteps }: StepsListProps) => {
           placeholder="Entrez les instructions pour cette étape"
           onChange={(event) => (stepDescription = event.currentTarget.value)}
         />
-        <button
-          onClick={() => {
-            const updatedSteps = [
-              ...steps,
-              { name: stepTitle, instructions: stepDescription } as Step,
-            ];
-            steps = updatedSteps;
-            handleStepsChanges(updatedSteps);
-            (
-              document.querySelector(
-                "input[name='stepTitle']"
-              ) as HTMLInputElement
-            ).value = "";
-            (
-              document.querySelector(
-                "textarea[name='stepInstrucions']"
-              ) as HTMLTextAreaElement
-            ).value = "";
-          }}
-        >
-          Ajouter l&apos;&eacute;tape
-        </button>
+        <button>Ajouter l&apos;&eacute;tape</button>
       </div>
       {steps &&
         steps.map((step) => (

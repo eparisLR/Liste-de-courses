@@ -20,26 +20,7 @@ const IngredientsList = ({
           type="text"
           onChange={(event) => (ingredientName = event.currentTarget.value)}
         />
-        <button
-          onClick={() => {
-            const updatedIngrdients = [
-              ...ingredients,
-              {
-                name: ingredientName,
-                type: INGREDIENTS_TYPES.VEGETABLES,
-              } as IIngredient,
-            ];
-            ingredients = updatedIngrdients;
-            handleIngredientsChanges(updatedIngrdients);
-            (
-              document.querySelector(
-                "input[name='ingredient']"
-              ) as HTMLInputElement
-            ).value = "";
-          }}
-        >
-          Ajouter l&apos;ingredient
-        </button>
+        <button>Ajouter l&apos;ingredient</button>
       </div>
       {ingredients.map((ingredient, index) => (
         <div key={index} className="flex">
