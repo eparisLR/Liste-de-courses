@@ -2,18 +2,14 @@ import {
   IIngredient,
   INGREDIENTS_TYPES,
 } from "../../../modules/recipes/recipes.types";
-import { useState } from "react";
 import { IngredientsListProps } from "./ingredients-list.type";
-import { AiTwotoneCheckSquare } from "react-icons/ai";
 
 const IngredientsList = ({
   handleIngredientsChanges,
   recipeIngredients,
 }: IngredientsListProps) => {
-  const [ingredients, setIngredients] = useState(
-    recipeIngredients ? recipeIngredients : []
-  );
-  const [ingredientName, setIngredientName] = useState("");
+  let ingredients = recipeIngredients ? recipeIngredients : [];
+  let ingredientName = "";
 
   function handleOnAddIngredient(ingredient: IIngredient) {}
   return (
@@ -22,7 +18,7 @@ const IngredientsList = ({
         <input
           name="ingredient"
           type="text"
-          onChange={(event) => setIngredientName(event.currentTarget.value)}
+          onChange={(event) => (ingredientName = event.currentTarget.value)}
         />
         <button
           onClick={() => {
@@ -33,7 +29,7 @@ const IngredientsList = ({
                 type: INGREDIENTS_TYPES.VEGETABLES,
               } as IIngredient,
             ];
-            setIngredients(updatedIngrdients);
+            ingredients = updatedIngrdients;
             handleIngredientsChanges(updatedIngrdients);
             (
               document.querySelector(

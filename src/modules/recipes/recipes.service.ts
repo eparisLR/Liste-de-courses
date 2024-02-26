@@ -12,9 +12,6 @@ export const getAllRecipes = async () => {
       return results.json().then((recipes) => recipes as IRecipe[]);
     })
     .catch((error) => {
-      toast.error("Erreur lors de la récupération des recettes", {
-        position: "top-right",
-      });
       console.error(error);
     });
 };
@@ -28,9 +25,6 @@ export const getOneRecipe = (id: number) => {
       return result.json().then((recipe) => recipe as Recipe);
     })
     .catch((error) => {
-      toast.error("Erreur lors de la récupération de la recette", {
-        position: "top-right",
-      });
       console.log(error);
     });
 };
@@ -45,7 +39,6 @@ export const saveRecipe = async (recipe: Recipe) => {
       toast.success("La recette a bien été ajoutée", { position: "top-right" });
     })
     .catch((error) => {
-      toast.error("Erreur lors de l'ajout de la recette");
       console.error(error);
     });
 };
@@ -62,9 +55,6 @@ export const editRecipe = async (recipe: Recipe, id: number) => {
       });
     })
     .catch((error) => {
-      toast.error("Erreur lors de l'ajout de la recette", {
-        position: "top-right",
-      });
       console.error(error);
     });
 };
@@ -80,9 +70,6 @@ export const deleteRecipe = async (recipeId: number) => {
       });
     })
     .catch((error) => {
-      toast.error("Erreur lors de la suppression de la recette", {
-        position: "top-right",
-      });
       console.error(error);
     });
 };

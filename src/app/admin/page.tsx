@@ -2,24 +2,13 @@ import {
   deleteRecipe,
   getAllRecipes,
 } from "../../modules/recipes/recipes.service";
-import { Recipe } from "../../modules/recipes/recipes.types";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { AiOutlinePlus } from "react-icons/ai";
 
-export default function Administration() {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
-  useEffect(() => {
-    async function fetchData() {
-      const res = await getAllRecipes();
-      if (res) {
-        setRecipes([...res]);
-      }
-    }
-    fetchData();
-  }, []);
+export default async function Administration() {
+  const recipes = await getAllRecipes();
   return (
     <>
       <Link href="/" className="flex justify-items-center pb-2">
@@ -49,15 +38,7 @@ export default function Administration() {
                     >
                       <FaEdit size="23" />
                     </Link>
-                    <button
-                      color="danger"
-                      aria-label="Delete recipe"
-                      onClick={() => {
-                        deleteRecipe(recipe.id).then((_) =>
-                          setRecipes(recipes.filter((r) => r.id !== recipe.id))
-                        );
-                      }}
-                    >
+                    <button color="danger" aria-label="Delete recipe">
                       <MdDeleteForever size="23" color="danger" />
                     </button>
                   </td>

@@ -2,10 +2,9 @@ import { IRecipeCardProps } from "./recipe-card.type";
 import Image from "next/image";
 import Link from "next/link";
 import CartIcon from "../../cart/icon";
-import { useState } from "react";
 
 const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
-  const [isInCart, setIsInCart] = useState<boolean>(true);
+  let isInCart = true;
 
   return (
     <>
@@ -28,7 +27,9 @@ const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
             ></Link>
           </b>
           <CartIcon
-            setIsInCart={setIsInCart}
+            setIsInCart={() => {
+              console.log("ADD IN CART");
+            }}
             isInCart={isInCart}
             recipeId={recipe.id}
           />

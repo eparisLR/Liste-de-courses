@@ -1,3 +1,4 @@
+"use client";
 import {
   IIngredient,
   IStep,
@@ -8,7 +9,6 @@ import {
 import Link from "next/link";
 import IngredientsList from "../ingredients-list";
 import StepsList from "../steps-list";
-import { useState } from "react";
 import {
   editRecipe,
   saveRecipe,
@@ -16,20 +16,14 @@ import {
 import { RecipeFormProps } from "./recipe-form.type";
 
 export default function RecipeForm({ recipe }: RecipeFormProps) {
-  const [ingredients, setIngredients] = useState(
-    recipe ? recipe.ingredients : ([] as IIngredient[])
-  );
-  const [steps, setSteps] = useState(recipe ? recipe.steps : ([] as IStep[]));
-  const [recipeName, setRecipeName] = useState(recipe ? recipe.name : "");
-  const [recipeType, setRecipeType] = useState(
-    recipe ? recipe.type : RECIPE_TYPE.ENTREE
-  );
-  const [recipeSeason, setRecipeSeason] = useState(
-    recipe ? recipe.season : SEASONS.AUTUMN
-  );
+  let recipeIngredients = recipe ? recipe.ingredients : ([] as IIngredient[]);
+  let recipeSteps = recipe ? recipe.steps : ([] as IStep[]);
+  let recipeName = recipe ? recipe.name : "";
+  let recipeType = recipe ? recipe.type : RECIPE_TYPE.ENTREE;
+  let recipeSeason = recipe ? recipe.season : SEASONS.AUTUMN;
   const handleIngredientsChanges = (ingredients: IIngredient[]) =>
-    setIngredients(ingredients);
-  const handleStepsChanges = (steps: IStep[]) => setSteps(steps);
+    (recipeIngredients = ingredients);
+  const handleStepsChanges = (steps: IStep[]) => (recipeSteps = steps);
   return (
     <>
       <form className="flex flex-col gap-3 w-full p-8">
@@ -40,13 +34,13 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
             type="text"
             value={recipeName}
             placeholder="Nom de la recette..."
-            onChange={(event) => setRecipeName(event.currentTarget.value)}
+            onChange={(event) => (recipeName = event.currentTarget.value)}
           />
 
           <select
             name="recipeType"
             onChange={(event) => {
-              setRecipeType(Object.values(RECIPE_TYPE)[+event.target.value]);
+              recipeType = Object.values(RECIPE_TYPE)[+event.target.value];
             }}
           >
             {Object.values(RECIPE_TYPE).map((type) => {
@@ -60,7 +54,7 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
           <select
             name="recipeSeason"
             onChange={(event) => {
-              setRecipeSeason(Object.values(SEASONS)[+event.target.value]);
+              recipeSeason = Object.values(SEASONS)[+event.target.value];
             }}
           >
             {Object.values(SEASONS).map((season) => {
@@ -75,11 +69,11 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
         <div className="flex gap-2 justify-between">
           <IngredientsList
             handleIngredientsChanges={handleIngredientsChanges}
-            recipeIngredients={ingredients}
+            recipeIngredients={recipeIngredients}
           />
           <StepsList
             handleStepsChanges={handleStepsChanges}
-            recipeSteps={steps}
+            recipeSteps={recipeSteps}
           />
         </div>
         <div className="flex flex-row-reverse gap-2 items-center">
@@ -89,15 +83,15 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
                 recipe.name = recipeName;
                 recipe.type = recipeType;
                 recipe.season = recipeSeason;
-                recipe.ingredients = ingredients;
-                recipe.steps = steps;
+                recipe.ingredients = recipeIngredients;
+                recipe.steps = recipeSteps;
                 editRecipe(recipe, recipe.id);
               } else {
                 let recipeToSave = new Recipe(
                   recipeName,
                   recipeType,
-                  ingredients,
-                  steps,
+                  recipeIngredients,
+                  recipeSteps,
                   recipeSeason
                 );
                 saveRecipe(recipeToSave);

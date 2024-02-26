@@ -1,11 +1,10 @@
 import { Step } from "../../../modules/recipes/recipes.types";
-import { useState } from "react";
 import { StepsListProps } from "./steps-list.type";
 
 const StepsList = ({ handleStepsChanges, recipeSteps }: StepsListProps) => {
-  const [steps, setSteps] = useState(recipeSteps ? recipeSteps : []);
-  const [stepTitle, setStepTitle] = useState("");
-  const [stepDescription, setStepDesription] = useState("");
+  let steps = recipeSteps ? recipeSteps : [];
+  let stepTitle = "";
+  let stepDescription = "";
 
   return (
     <div className="flex flex-col gap-2 w-2/4 bg-zinc-100 p-2 rounded">
@@ -13,12 +12,12 @@ const StepsList = ({ handleStepsChanges, recipeSteps }: StepsListProps) => {
         <input
           name="stepTitle"
           type="text"
-          onChange={(event) => setStepTitle(event.currentTarget.value)}
+          onChange={(event) => (stepTitle = event.currentTarget.value)}
         />
         <textarea
           name="stepInstrucions"
           placeholder="Entrez les instructions pour cette étape"
-          onChange={(event) => setStepDesription(event.currentTarget.value)}
+          onChange={(event) => (stepDescription = event.currentTarget.value)}
         />
         <button
           onClick={() => {
@@ -26,7 +25,7 @@ const StepsList = ({ handleStepsChanges, recipeSteps }: StepsListProps) => {
               ...steps,
               { name: stepTitle, instructions: stepDescription } as Step,
             ];
-            setSteps(updatedSteps);
+            steps = updatedSteps;
             handleStepsChanges(updatedSteps);
             (
               document.querySelector(

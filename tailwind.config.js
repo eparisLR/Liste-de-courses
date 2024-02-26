@@ -6,6 +6,10 @@ const config = {
   ],
   theme: {
     extend: {},
+    colors: {
+      green: "7eb693",
+      yellow: "274c5b",
+    },
   },
   darkMode: "class",
   plugins: [],

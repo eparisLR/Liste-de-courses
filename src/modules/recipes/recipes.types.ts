@@ -58,11 +58,11 @@ export class Recipe implements IRecipe {
   steps: IStep[] = [];
   season: SEASONS = SEASONS.AUTUMN;
   constructor(
-    name: string,
-    type: RECIPE_TYPE,
-    ingredients: IIngredient[],
-    steps: IStep[],
-    season: SEASONS
+    name?: string,
+    type?: RECIPE_TYPE,
+    ingredients?: IIngredient[],
+    steps?: IStep[],
+    season?: SEASONS
   ) {
     this.name = name;
     this.type = type;
