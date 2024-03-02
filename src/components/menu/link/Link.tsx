@@ -8,10 +8,10 @@ export default function SideMenuLink({
 }: ISideMenuLinkProps) {
   return (
     <>
-      <span className="flex gap-2 cursor-pointer">
+      <li className="flex gap-2 cursor-pointer font-sans px-4 py-6 text-gray">
         {icon}
         <Link href={path}>{linkName}</Link>
-      </span>
+      </li>
     </>
   );
 }

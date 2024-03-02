@@ -1,18 +1,12 @@
-import { HiHome } from "react-icons/hi2";
 import SideMenuLink from "../link/Link";
+import { ISideMenuLinkListProps } from "./LinkList.type";
 
-export default async function SideMenuLinkList() {
-  const BASE_UI_URL = await process.env.UI_BASE_URL;
-  const menuItems = [
-    {
-      icon: <HiHome size={23} />,
-      path: new URL("/", BASE_UI_URL),
-      linkName: "Accueil",
-    },
-  ];
+export default async function SideMenuLinkList({
+  links,
+}: ISideMenuLinkListProps) {
   return (
-    <>
-      {menuItems.map((menuItem, idx) => (
+    <ul className="list-none p-8">
+      {links.map((menuItem, idx) => (
         <SideMenuLink
           key={idx}
           path={menuItem.path}
@@ -20,6 +14,6 @@ export default async function SideMenuLinkList() {
           linkName={menuItem.linkName}
         />
       ))}
-    </>
+    </ul>
   );
 }

@@ -5,10 +5,15 @@ const config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-roboto)"],
+      },
+    },
     colors: {
-      green: "7eb693",
-      yellow: "274c5b",
+      green: "#7eb693",
+      yellow: "#274c5b",
+      gray: "#525C60",
     },
   },
   darkMode: "class",
