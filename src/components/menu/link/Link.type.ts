@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface ISideMenuLinkProps {
-  path: URL;
+  path: string;
   icon: ReactNode;
   linkName: string;
 }

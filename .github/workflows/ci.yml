@@ -2,7 +2,7 @@ name: CI-LDC
 
 env:
   NEXT_PUBLIC_BASE_RECIPES_API_URL: ${{ vars.NEXT_PUBLIC_BASE_RECIPES_API_URL }}
-  UI_BASE_URL: ${{ vars.UI_BASE_URL }}
+
 on:
   push:
     branches: [main]
@@ -59,4 +59,3 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             NEXT_PUBLIC_BASE_RECIPES_API_URL
-            UI_BASE_URL
