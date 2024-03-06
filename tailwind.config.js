@@ -9,12 +9,13 @@ const config = {
       fontFamily: {
         sans: ["var(--font-roboto)"],
       },
-    },
-    colors: {
-      green: "#7eb693",
-      yellow: "#274c5b",
-      gray: "#525C60",
-      white: "rgb(255 255 255)",
+      colors: {
+        green: "#7eb693",
+        yellow: "#274c5b",
+        gray: "#525C60",
+        white: "#fff",
+        "light-gray": "#EFF6F1",
+      },
     },
   },
   darkMode: "class",

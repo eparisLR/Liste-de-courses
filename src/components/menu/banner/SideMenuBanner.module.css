@@ -1,3 +1,7 @@
 .banner {
   background-image: url("/images/banner-sidemenu.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 20vh;
+  max-width: 12vw;
 }

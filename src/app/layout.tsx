@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 // These styles apply to every route in the application
 import "./globals.css";
@@ -14,11 +14,17 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Générateur de liste de courses",
   description: "Générateur de liste de courses",
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 import localFont from "next/font/local";
 import SideMenuBanner from "../components/menu/banner/SideMenuBanner";
+import Button from "../components/common/button/Button";
+import { ButtonColorsEnum } from "../components/common/button/Button.type";
 
 const roboto = localFont({
   src: "../../public/fonts/Roboto-Regular.woff2",
@@ -65,8 +71,8 @@ export default function RootLayout({
           />
           <SideMenuLinkList links={leftMenuItems} />
           <SideMenuBanner
-            title="Le super push"
-            button={<button>test</button>}
+            title="Pour de nouvelles recettes en direct, abonnez-vous !"
+            button={<Button color={ButtonColorsEnum.WHITE} text="S'abonner" />}
           />
         </aside>
         {children}

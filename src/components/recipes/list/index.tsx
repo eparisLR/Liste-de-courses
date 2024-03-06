@@ -1,5 +1,5 @@
 import { getAllRecipes } from "../../../modules/recipes/recipes.service";
-import RecipeCard from "../item";
+import RecipeCard from "../item/RecipeCard";
 
 export default async function RecipesList() {
   const recipes = await getAllRecipes();

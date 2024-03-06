@@ -2,8 +2,10 @@
   "recipes": [
     {
       "id": 1,
-      "type": "Entrée",
-      "name": "",
+      "type": "Plat",
+      "name": "Courgettes farcies",
+      "difficulty": "Facile",
+      "time": 40,
       "image": {
         "url": "https://fakeimg.pl/500/",
         "alt": ""
@@ -12,8 +14,10 @@
       "steps": []
     },
     {
-      "type": "Entrée",
-      "name": "La recette d'Emiien",
+      "type": "Plat",
+      "name": "Gratin de pommes de terre",
+      "difficulty": "Intermédiaire",
+      "time": 40,
       "image": {
         "url": "https://fakeimg.pl/300/",
         "alt": ""
@@ -35,7 +39,9 @@
     },
     {
       "type": "Entrée",
-      "name": "Ma recette",
+      "name": "Taboulet",
+      "difficulty": "Intermédiaire",
+      "time": 15,
       "image": {
         "url": "https://fakeimg.pl/300/",
         "alt": ""
@@ -54,160 +60,6 @@
       ],
       "season": "Hiver",
       "id": 3
-    },
-    {
-      "type": "Entrée",
-      "name": "Ma recette",
-      "image": {
-        "url": "https://fakeimg.pl/300/",
-        "alt": ""
-      },
-      "ingredients": [
-        {
-          "name": "Patate",
-          "type": "vegetables"
-        }
-      ],
-      "steps": [
-        {
-          "name": "teteteteteet",
-          "instructions": "tetetetetetetet"
-        }
-      ],
-      "season": "Hiver",
-      "id": 4
-    },
-    {
-      "type": "Plat",
-      "name": "test",
-      "image": {
-        "url": "https://fakeimg.pl/300/",
-        "alt": ""
-      },
-      "ingredients": [
-        {
-          "name": "test",
-          "type": "vegetables"
-        }
-      ],
-      "steps": [
-        {
-          "name": "test",
-          "instructions": "test"
-        }
-      ],
-      "season": "Hiver",
-      "id": 5
-    },
-    {
-      "type": "Entrée",
-      "name": "test",
-      "image": {
-        "url": "https://fakeimg.pl/300/",
-        "alt": ""
-      },
-      "ingredients": [
-        {
-          "name": "test",
-          "type": "vegetables"
-        }
-      ],
-      "steps": [
-        {
-          "name": "test",
-          "instructions": "test"
-        }
-      ],
-      "season": "Hiver",
-      "id": 6
-    },
-    {
-      "type": "Entrée",
-      "name": "test",
-      "image": {
-        "url": "https://fakeimg.pl/300/",
-        "alt": ""
-      },
-      "ingredients": [
-        {
-          "name": "test",
-          "type": "vegetables"
-        }
-      ],
-      "steps": [
-        {
-          "name": "test",
-          "instructions": "test"
-        }
-      ],
-      "season": "Hiver",
-      "id": 7
-    },
-    {
-      "type": "Entrée",
-      "name": "test",
-      "image": {
-        "url": "https://fakeimg.pl/300/",
-        "alt": ""
-      },
-      "ingredients": [
-        {
-          "name": "test",
-          "type": "vegetables"
-        }
-      ],
-      "steps": [
-        {
-          "name": "test",
-          "instructions": "test"
-        }
-      ],
-      "season": "Hiver",
-      "id": 8
-    },
-    {
-      "type": "Entrée",
-      "name": "test",
-      "image": {
-        "url": "https://fakeimg.pl/300/",
-        "alt": ""
-      },
-      "ingredients": [
-        {
-          "name": "test",
-          "type": "vegetables"
-        }
-      ],
-      "steps": [
-        {
-          "name": "test",
-          "instructions": "test"
-        }
-      ],
-      "season": "Hiver",
-      "id": 9
-    },
-    {
-      "type": "Entrée",
-      "name": "Ma super recette",
-      "image": {
-        "url": "",
-        "alt": ""
-      },
-      "ingredients": [
-        {
-          "name": "Patate",
-          "type": "vegetables"
-        }
-      ],
-      "steps": [
-        {
-          "name": "Test",
-          "instructions": "tets"
-        }
-      ],
-      "season": "Hiver",
-      "id": 10
     }
   ]
 }

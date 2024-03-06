@@ -6,8 +6,11 @@ export default function SideMenuBanner({
   button,
 }: ISideMenuBannerProps) {
   return (
-    <div className={`flex flex-col p-8 ${styles.banner}`}>
-      <p className="text-white font-bold">{title}</p>
+    <div
+      className={`mx-10 flex flex-col items-start p-4 ${styles.banner}`}
+      data-cy="sidemenu-banner"
+    >
+      <p className="text-white font-bold mb-2">{title}</p>
       {button}
     </div>
   );
