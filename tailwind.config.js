@@ -11,7 +11,7 @@ const config = {
       },
       colors: {
         green: "#7eb693",
-        yellow: "#274c5b",
+        yellow: "#EFD372",
         gray: "#525C60",
         white: "#fff",
         "light-gray": "#EFF6F1",

@@ -1,0 +1,5 @@
+.recipe_banner_bg {
+  background-image: url("/images/banner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

@@ -7,7 +7,7 @@ export default function SideMenuBanner({
 }: ISideMenuBannerProps) {
   return (
     <div
-      className={`mx-10 flex flex-col items-start p-4 ${styles.banner}`}
+      className={`mx-8 flex flex-col justify-between items-start p-8 rounded-3xl ${styles.banner}`}
       data-cy="sidemenu-banner"
     >
       <p className="text-white font-bold mb-2">{title}</p>

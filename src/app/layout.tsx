@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.variable} font-sans flex`}>
-        <aside className="h-screen">
+        <aside className="h-screen w-1/5">
           <Image
             src="/images/logo.png"
             width={150}
@@ -76,6 +76,7 @@ export default function RootLayout({
           />
         </aside>
         {children}
+        <aside className="h-screen w-1/5"></aside>
       </body>
     </html>
   );

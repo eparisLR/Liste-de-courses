@@ -11,6 +11,7 @@ export interface IRecipe {
   type: RECIPE_TYPE;
   difficulty: "Facile" | "Intermédiaire" | "Difficile";
   time: number;
+  stars: number;
 }
 
 export interface IIngredient {
@@ -61,6 +62,7 @@ export class Recipe implements IRecipe {
   season: SEASONS = SEASONS.AUTUMN;
   difficulty: "Facile" | "Intermédiaire" | "Difficile" = "Facile";
   time: number = 3;
+  stars: number = 3;
   constructor(
     name?: string,
     type?: RECIPE_TYPE,
@@ -68,7 +70,8 @@ export class Recipe implements IRecipe {
     steps?: IStep[],
     season?: SEASONS,
     difficulty?: "Facile" | "Intermédiaire" | "Difficile",
-    time?: number
+    time?: number,
+    stars?: number
   ) {
     this.name = name;
     this.type = type;
@@ -77,6 +80,7 @@ export class Recipe implements IRecipe {
     this.season = season;
     this.difficulty = difficulty;
     this.time = time;
+    this.stars = stars;
   }
 }
 

@@ -6,6 +6,7 @@
       "name": "Courgettes farcies",
       "difficulty": "Facile",
       "time": 40,
+      "stars": 4,
       "image": {
         "url": "https://fakeimg.pl/500/",
         "alt": ""
@@ -18,6 +19,7 @@
       "name": "Gratin de pommes de terre",
       "difficulty": "Intermédiaire",
       "time": 40,
+      "stars": 3,
       "image": {
         "url": "https://fakeimg.pl/300/",
         "alt": ""
@@ -42,6 +44,7 @@
       "name": "Taboulet",
       "difficulty": "Intermédiaire",
       "time": 15,
+      "stars": 2,
       "image": {
         "url": "https://fakeimg.pl/300/",
         "alt": ""
