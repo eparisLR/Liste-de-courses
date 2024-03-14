@@ -4,11 +4,11 @@ import { GiCookingPot } from "react-icons/gi";
 import { BsBarChartFill } from "react-icons/bs";
 import { HiStar } from "react-icons/hi2";
 
-const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
+const RecipeCard = ({ recipe }: IRecipeCardProps) => {
   const recipeStars = Array.apply(null, new Array(recipe.stars));
   return (
     <>
-      <div className="relative h-[27vh] grow">
+      <div className="relative h-[22.5vh] grow">
         <div>
           <Image
             src="/images/image-illustration.jpg"
@@ -20,8 +20,10 @@ const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
           />
         </div>
         <div className="flex flex-col items-center bg-white p-4 rounded-3xl absolute bottom-0 w-full">
-          <p className="text-gray">{recipe.name}</p>
-          <p className="flex my-2">
+          <p className="text-gray" data-cy="recipe-title">
+            {recipe.name}
+          </p>
+          <p className="flex my-2" data-cy="stars">
             {recipeStars.map((_, idx) => {
               return (
                 <HiStar
@@ -32,11 +34,17 @@ const RecipeCard = ({ recipe, recipeId }: IRecipeCardProps) => {
             })}
           </p>
           <p className="w-full flex">
-            <span className="block w-6/12 flex justify-center items-center text-gray">
+            <span
+              className="block w-6/12 flex justify-center items-center text-gray"
+              data-cy="difficulty"
+            >
               <BsBarChartFill size={23} className="mr-2" />
               {recipe.difficulty}
             </span>
-            <span className="block w-6/12 flex justify-center items-center text-gray">
+            <span
+              className="block w-6/12 flex justify-center items-center text-gray"
+              data-cy="time"
+            >
               <GiCookingPot size={23} className="mr-2" /> {recipe.time} min
             </span>
           </p>

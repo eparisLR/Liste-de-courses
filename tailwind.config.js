@@ -15,6 +15,7 @@ const config = {
         gray: "#525C60",
         white: "#fff",
         "light-gray": "#EFF6F1",
+        "brown-gray": "#A098AE",
       },
     },
   },

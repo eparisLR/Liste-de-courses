@@ -8,14 +8,14 @@ export interface IRecipe {
   season: SEASONS;
   ingredients: IIngredient[];
   steps: IStep[];
-  type: RECIPE_TYPE;
+  category: RECIPE_CATEGORIES;
   difficulty: "Facile" | "Intermédiaire" | "Difficile";
   time: number;
   stars: number;
 }
 
 export interface IIngredient {
-  type: INGREDIENTS_TYPES;
+  category: INGREDIENTS_CATEGORIES;
   name: string;
 }
 
@@ -26,14 +26,14 @@ export enum SEASONS {
   SUMMER = "Été",
 }
 
-export enum INGREDIENTS_TYPES {
+export enum INGREDIENTS_CATEGORIES {
   VEGETABLES = "vegetables",
   MEAT = "meat",
   CONDIMENT = "condiment",
   STARCHY = "starchy",
 }
 
-export enum RECIPE_TYPE {
+export enum RECIPE_CATEGORIES {
   ENTREE = "Entrée",
   PLAT = "Plat",
   DESSERT = "Dessert",
@@ -54,7 +54,7 @@ export interface IImage {
  */
 export class Recipe implements IRecipe {
   id: number = 0;
-  type: RECIPE_TYPE = RECIPE_TYPE.ENTREE;
+  category: RECIPE_CATEGORIES = RECIPE_CATEGORIES.ENTREE;
   name: string = "";
   image: IImage = { url: "", alt: "" };
   ingredients: IIngredient[] = [];
@@ -65,7 +65,7 @@ export class Recipe implements IRecipe {
   stars: number = 3;
   constructor(
     name?: string,
-    type?: RECIPE_TYPE,
+    category?: RECIPE_CATEGORIES,
     ingredients?: IIngredient[],
     steps?: IStep[],
     season?: SEASONS,
@@ -74,7 +74,7 @@ export class Recipe implements IRecipe {
     stars?: number
   ) {
     this.name = name;
-    this.type = type;
+    this.category = category;
     this.ingredients = ingredients;
     this.steps = steps;
     this.season = season;
@@ -86,7 +86,7 @@ export class Recipe implements IRecipe {
 
 export class Ingredient implements IIngredient {
   constructor() {}
-  type = INGREDIENTS_TYPES.VEGETABLES;
+  category = INGREDIENTS_CATEGORIES.VEGETABLES;
   name: string = "";
 }
 

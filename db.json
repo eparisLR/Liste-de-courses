@@ -2,7 +2,7 @@
   "recipes": [
     {
       "id": 1,
-      "type": "Plat",
+      "category": "Plat",
       "name": "Courgettes farcies",
       "difficulty": "Facile",
       "time": 40,
@@ -15,7 +15,7 @@
       "steps": []
     },
     {
-      "type": "Plat",
+      "category": "Plat",
       "name": "Gratin de pommes de terre",
       "difficulty": "Intermédiaire",
       "time": 40,
@@ -27,20 +27,20 @@
       "ingredients": [
         {
           "name": "Patate",
-          "type": "vegetables"
+          "category": "vegetables"
         }
       ],
       "steps": [
         {
-          "name": "tteu",
-          "instructions": "tete"
+          "name": "Eplucher les pommes de terres",
+          "instructions": "Rincer les pommes de terres et les éplucher."
         }
       ],
       "season": "Hiver",
       "id": 2
     },
     {
-      "type": "Entrée",
+      "category": "Entrée",
       "name": "Taboulet",
       "difficulty": "Intermédiaire",
       "time": 15,
@@ -51,18 +51,48 @@
       },
       "ingredients": [
         {
-          "name": "Patate",
-          "type": "vegetables"
+          "name": "Semoule",
+          "category": "starchy"
         }
       ],
       "steps": [
         {
-          "name": "teteteteteet",
-          "instructions": "tetetetetetetet"
+          "name": "Cuisson de la semoule",
+          "instructions": "Faire bouillir de l'eau dans une grande casserole."
         }
       ],
       "season": "Hiver",
       "id": 3
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Entrée"
+    },
+    {
+      "id": 2,
+      "name": "Plat"
+    },
+    {
+      "id": 3,
+      "name": "Dessert"
+    },
+    {
+      "id": 4,
+      "name": "Hiver"
+    },
+    {
+      "id": 5,
+      "name": "Printemps"
+    },
+    {
+      "id": 6,
+      "name": "Eté"
+    },
+    {
+      "id": 7,
+      "name": "Automne"
     }
   ]
 }
