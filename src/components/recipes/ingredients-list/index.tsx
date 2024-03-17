@@ -1,7 +1,4 @@
-import {
-  IIngredient,
-  INGREDIENTS_TYPES,
-} from "../../../modules/recipes/recipes.types";
+import { IIngredient } from "../../../modules/recipes/recipes.types";
 import { IngredientsListProps } from "./ingredients-list.type";
 
 const IngredientsList = ({
