@@ -2,7 +2,7 @@
 import {
   IIngredient,
   IStep,
-  RECIPE_TYPE,
+  RECIPE_CATEGORIES,
   Recipe,
   SEASONS,
 } from "../../../modules/recipes/recipes.types";
@@ -19,7 +19,7 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
   let recipeIngredients = recipe ? recipe.ingredients : ([] as IIngredient[]);
   let recipeSteps = recipe ? recipe.steps : ([] as IStep[]);
   let recipeName = recipe ? recipe.name : "";
-  let recipeType = recipe ? recipe.type : RECIPE_TYPE.ENTREE;
+  let recipeType = recipe ? recipe.category : RECIPE_CATEGORIES.ENTREE;
   let recipeSeason = recipe ? recipe.season : SEASONS.AUTUMN;
   const handleIngredientsChanges = (ingredients: IIngredient[]) =>
     (recipeIngredients = ingredients);
@@ -40,10 +40,11 @@ export default function RecipeForm({ recipe }: RecipeFormProps) {
           <select
             name="recipeType"
             onChange={(event) => {
-              recipeType = Object.values(RECIPE_TYPE)[+event.target.value];
+              recipeType =
+                Object.values(RECIPE_CATEGORIES)[+event.target.value];
             }}
           >
-            {Object.values(RECIPE_TYPE).map((type) => {
+            {Object.values(RECIPE_CATEGORIES).map((type) => {
               return (
                 <option key={type} value={type}>
                   {type}
