@@ -10,7 +10,6 @@ export default async function RecipesList({ label }: IRecipeListProps) {
       <h2 className="font-bold text-gray my-2">{label}</h2>
       <div className="w-full flex justify-between gap-2">
         {recipes &&
-          recipes.length &&
           recipes.map((r, index) => {
             return <RecipeCard recipe={r} key={`${r.name}-${index}`} />;
           })}
