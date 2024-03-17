@@ -3,7 +3,7 @@ import RecipeCard from "../card/RecipeCard";
 import { IRecipeListProps } from "./RecipeList.type";
 
 export default async function RecipesList({ label }: IRecipeListProps) {
-  const recipes = await getAllRecipes();
+  const recipes = (await getAllRecipes()) ?? [];
 
   return (
     <>

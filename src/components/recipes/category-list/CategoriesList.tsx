@@ -2,7 +2,7 @@ import { getAllCategories } from "../../../modules/categories/categories.service
 import CardCategory from "../card-category/CardCategory";
 
 export default async function CategoriesList() {
-  const categories = await getAllCategories();
+  const categories = (await getAllCategories()) ?? [];
 
   return (
     <>
