@@ -11,5 +11,6 @@ export const getAllCategories = async () => {
     })
     .catch((error) => {
       console.error(error);
+      return [];
     });
 };

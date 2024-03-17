@@ -13,6 +13,7 @@ export const getAllRecipes = async () => {
     })
     .catch((error) => {
       console.error(error);
+      return [];
     });
 };
 
