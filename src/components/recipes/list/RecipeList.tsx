@@ -11,13 +11,7 @@ export default async function RecipesList({ label }: IRecipeListProps) {
       <div className="w-full flex justify-between gap-2">
         {recipes &&
           recipes.map((r, index) => {
-            return (
-              <RecipeCard
-                recipeId={r.id}
-                recipe={r}
-                key={`${r.name}-${index}`}
-              />
-            );
+            return <RecipeCard recipe={r} key={`${r.name}-${index}`} />;
           })}
       </div>
     </>
