@@ -7,7 +7,7 @@ export default async function Home() {
     <>
       <main className="bg-light-gray w-3/5 p-8">
         <RecipeBanner />
-        {/* <CategoriesList /> */}
+        <CategoriesList />
         <RecipesList label="Pour vous" />
         <RecipesList label="Recettes populaires" />
       </main>
