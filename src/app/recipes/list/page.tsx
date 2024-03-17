@@ -5,7 +5,8 @@ export default async function PageListGenerator() {
 
   return (
     <>
-      {allIngredients !== null &&
+      {allIngredients &&
+        allIngredients.length &&
         allIngredients.map((ingredient, id) => {
           return <p key={ingredient.toLowerCase() + id}>{ingredient}</p>;
         })}

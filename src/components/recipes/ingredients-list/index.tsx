@@ -19,11 +19,12 @@ const IngredientsList = ({
         />
         <button>Ajouter l&apos;ingredient</button>
       </div>
-      {ingredients.map((ingredient, index) => (
-        <div key={index} className="flex">
-          <span>{ingredient.name}</span>
-        </div>
-      ))}
+      {ingredients &&
+        ingredients.map((ingredient, index) => (
+          <div key={index} className="flex">
+            <span>{ingredient.name}</span>
+          </div>
+        ))}
     </div>
   );
 };

@@ -24,14 +24,16 @@ const RecipeCard = ({ recipe }: IRecipeCardProps) => {
             {recipe.name}
           </p>
           <p className="flex my-2" data-cy="stars">
-            {recipeStars.map((_, idx) => {
-              return (
-                <HiStar
-                  key={`recipe-${recipe.id}-star-${idx}`}
-                  className="mr-2 text-yellow"
-                />
-              );
-            })}
+            {recipeStars &&
+              recipeStars.length &&
+              recipeStars.map((_, idx) => {
+                return (
+                  <HiStar
+                    key={`recipe-${recipe.id}-star-${idx}`}
+                    className="mr-2 text-yellow"
+                  />
+                );
+              })}
           </p>
           <p className="w-full flex">
             <span
