@@ -2,7 +2,7 @@ import { CategoriesEndpoints } from "./categories.endpoints";
 import { ICategory } from "./categories.type";
 
 export const getAllCategories = async () => {
-  return fetch(`${CategoriesEndpoints.getAllCategories}/categories`, {
+  return fetch(CategoriesEndpoints.getAllCategories, {
     method: "GET",
     headers: { "Content-type": "application/json" },
   })

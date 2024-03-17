@@ -1,7 +1,7 @@
 name: CI-LDC
 
 env:
-  NEXT_PUBLIC_BASE_RECIPES_API_URL: ${{ vars.NEXT_PUBLIC_BASE_RECIPES_API_URL }}
+  BASE_RECIPES_API_URL: ${{ vars.BASE_RECIPES_API_URL }}
 
 on:
   push:
@@ -25,6 +25,9 @@ jobs:
 
       - name: Unit Testing
         run: npm run test
+
+      - name: Build
+        run: npm run build
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -55,4 +58,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            NEXT_PUBLIC_BASE_RECIPES_API_URL
+            BASE_RECIPES_API_URL
