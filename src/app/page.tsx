@@ -1,5 +1,5 @@
 import RecipeBanner from "../components/recipes/banner/RecipeBanner";
-import CategoriesList from "../components/recipes/category-list/CategoriesList";
+import CategoriesList from "../components/categories/list/CategoriesList";
 import RecipesList from "../components/recipes/list/RecipeList";
 
 export default async function Home() {

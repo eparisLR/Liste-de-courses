@@ -1,14 +1,21 @@
+"use client";
+
 import { IRecipeCardProps } from "./RecipeCard.type";
 import Image from "next/image";
 import { GiCookingPot } from "react-icons/gi";
 import { BsBarChartFill } from "react-icons/bs";
 import { HiStar } from "react-icons/hi2";
+import { useRouter } from "next/navigation";
 
 const RecipeCard = ({ recipe }: IRecipeCardProps) => {
   const recipeStars = Array.apply(null, new Array(recipe.stars));
+  const router = useRouter();
   return (
     <>
-      <div className="relative h-[22.5vh] grow">
+      <div
+        className="relative h-[22.5vh] grow"
+        onClick={() => router.push(`?recipeId=${recipe.id}`)}
+      >
         <div>
           <Image
             src="/images/image-illustration.jpg"

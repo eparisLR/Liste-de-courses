@@ -25,6 +25,7 @@ import localFont from "next/font/local";
 import SideMenuBanner from "../components/menu/banner/SideMenuBanner";
 import Button from "../components/common/button/Button";
 import { ButtonColorsEnum } from "../components/common/button/Button.type";
+import RecipeView from "../components/recipes/view/RecipeView";
 
 const roboto = localFont({
   src: "../../public/fonts/Roboto-Regular.woff2",
@@ -76,7 +77,9 @@ export default function RootLayout({
           />
         </aside>
         {children}
-        <aside className="h-screen w-1/5"></aside>
+        <aside className="h-screen w-1/5 p-8">
+          <RecipeView />
+        </aside>
       </body>
     </html>
   );

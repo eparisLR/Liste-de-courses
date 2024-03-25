@@ -10,7 +10,13 @@ import {
 const mockRecipe = new Recipe(
   "Ma recette",
   RECIPE_CATEGORIES.DESSERT,
-  [{ category: INGREDIENTS_CATEGORIES.VEGETABLES, name: "Pomme de terre" }],
+  [
+    {
+      category: INGREDIENTS_CATEGORIES.VEGETABLES,
+      name: "Pomme de terre",
+      quantity: 1,
+    },
+  ],
   [{ name: "Titre étape 1", instructions: "Instructins" }],
   SEASONS.AUTUMN,
   "Difficile",

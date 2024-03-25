@@ -1,5 +1,5 @@
 import { getAllCategories } from "../../../modules/categories/categories.service";
-import CardCategory from "../card-category/CardCategory";
+import CardCategory from "../card/CardCategory";
 
 export default async function CategoriesList() {
   const categories = await getAllCategories();

@@ -17,6 +17,7 @@ export interface IRecipe {
 export interface IIngredient {
   category: INGREDIENTS_CATEGORIES;
   name: string;
+  quantity: number;
 }
 
 export enum SEASONS {
@@ -88,6 +89,7 @@ export class Ingredient implements IIngredient {
   constructor() {}
   category = INGREDIENTS_CATEGORIES.VEGETABLES;
   name: string = "";
+  quantity: number = 1;
 }
 
 export class Step implements IStep {

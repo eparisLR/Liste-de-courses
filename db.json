@@ -11,7 +11,23 @@
         "url": "https://fakeimg.pl/500/",
         "alt": ""
       },
-      "ingredients": [],
+      "ingredients": [
+        {
+          "name": "Courgettes",
+          "quantity": 800,
+          "category": "vegetables"
+        },
+        {
+          "name": "Farce",
+          "quantity": 500,
+          "category": "meat"
+        },
+        {
+          "name": "Fromage",
+          "quantity": 50,
+          "category": "condiment"
+        }
+      ],
       "steps": []
     },
     {
@@ -27,7 +43,8 @@
       "ingredients": [
         {
           "name": "Patate",
-          "category": "vegetables"
+          "category": "vegetables",
+          "quantity": 800
         }
       ],
       "steps": [
@@ -52,7 +69,8 @@
       "ingredients": [
         {
           "name": "Semoule",
-          "category": "starchy"
+          "category": "starchy",
+          "quantity": 500
         }
       ],
       "steps": [
