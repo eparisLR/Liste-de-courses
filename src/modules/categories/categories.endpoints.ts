@@ -1,3 +1,3 @@
 export const CategoriesEndpoints = Object.freeze({
-  getAllCategories: process.env.BASE_RECIPES_API_URL + "/categories",
+  getAllCategories: new URL(`${process.env.BASE_RECIPES_API_URL}/categories`),
 });

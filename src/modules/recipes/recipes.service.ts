@@ -4,7 +4,7 @@ import { IRecipe, Recipe } from "./recipes.types";
 import { toast } from "sonner";
 
 export const getAllRecipes = async () => {
-  return fetch(recipesEndpoints.getAllRecipes, {
+  return fetch(recipesEndpoints.getAllRecipes.href, {
     method: "GET",
     headers: { "Content-type": "application/json" },
   })
@@ -18,7 +18,7 @@ export const getAllRecipes = async () => {
 };
 
 export const getOneRecipe = (id: number) => {
-  return fetch(recipesEndpoints.getOneRecipe + id, {
+  return fetch(recipesEndpoints.getOneRecipe.href + id, {
     method: "GET",
     headers: { "Content-type": "application/json" },
   })
@@ -31,7 +31,7 @@ export const getOneRecipe = (id: number) => {
 };
 
 export const saveRecipe = async (recipe: Recipe) => {
-  fetch(recipesEndpoints.saveRecipe, {
+  fetch(recipesEndpoints.saveRecipe.href, {
     method: "POST",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify(recipe),
@@ -45,7 +45,7 @@ export const saveRecipe = async (recipe: Recipe) => {
 };
 
 export const editRecipe = async (recipe: Recipe, id: number) => {
-  fetch(recipesEndpoints.editRecipe + id, {
+  fetch(recipesEndpoints.editRecipe.href + id, {
     method: "PUT",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify(recipe),
@@ -61,7 +61,7 @@ export const editRecipe = async (recipe: Recipe, id: number) => {
 };
 
 export const deleteRecipe = async (recipeId: number) => {
-  fetch(recipesEndpoints.deleteRecipe + recipeId, {
+  fetch(recipesEndpoints.deleteRecipe.href + recipeId, {
     method: "DELETE",
     headers: { "Content-type": "application/json" },
   })
